@@ -43,10 +43,16 @@ export default {
         },
       },
       fontFamily: {
-        display: ['"Instrument Serif"', 'Georgia', 'serif'],
-        sans: ['Outfit', 'system-ui', 'sans-serif'],
-        body: ['Outfit', 'system-ui', 'sans-serif'],
+        display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+      },
+      transitionDuration: {
+        220: '220ms',
+      },
+      transitionTimingFunction: {
+        out: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       spacing: {
         18: '4.5rem',

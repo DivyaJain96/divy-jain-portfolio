@@ -11,7 +11,7 @@ export default function Services() {
     <section id="services" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="02"
+          icon={Layers}
           kicker="What I do"
           title="Core expertise,"
           italic="said plainly."
@@ -23,11 +23,11 @@ export default function Services() {
             const Icon = icons[item.icon as keyof typeof icons] || Server;
             return (
               <Reveal key={item.title} delay={i * 0.05}>
-                <article className="panel group h-full rounded-[1.4rem] p-6 transition-transform duration-500 hover:-translate-y-1">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-champagne-400/20 bg-champagne-400/5 text-champagne-300">
+                <article className="panel group h-full rounded-[1.4rem] p-6">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-champagne-400/20 bg-champagne-400/5 text-champagne-300 transition-transform duration-220 ease-out group-hover:scale-105">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 text-2xl text-ink-100">{item.title}</h3>
+                  <h3 className="mt-5 text-xl font-medium tracking-tight text-ink-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-200">{item.plain}</p>
                   <p className="mt-2 text-sm leading-relaxed text-ink-400">{item.value}</p>
                 </article>

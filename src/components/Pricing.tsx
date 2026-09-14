@@ -10,7 +10,7 @@ export default function Pricing() {
     <section id="pricing" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="10"
+          icon={Layers}
           kicker="Engagements"
           title="Clear packages,"
           italic="no theatre."
@@ -33,9 +33,9 @@ export default function Pricing() {
                     </span>
                   )}
                   <Icon className="h-6 w-6 text-champagne-300" />
-                  <h3 className="mt-5 text-2xl text-ink-100">{pkg.name}</h3>
+                  <h3 className="mt-5 text-xl font-medium tracking-tight text-ink-100">{pkg.name}</h3>
                   <p className="mt-2 text-sm text-ink-300">{pkg.description}</p>
-                  <p className="mt-5 font-display text-3xl text-champagne-200">{pkg.priceRange}</p>
+                  <p className="mt-5 font-display text-2xl font-medium tracking-tight text-champagne-200">{pkg.priceRange}</p>
                   <p className="mt-1 text-xs text-ink-400">Starting from {pkg.price}</p>
                   <ul className="mt-6 flex-1 space-y-2.5">
                     {pkg.features.map((feature) => (

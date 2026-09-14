@@ -63,9 +63,11 @@ export default function ProfilePortrait({ variant = 'about', className = '' }: P
             width={400}
             height={400}
             decoding="async"
-            fetchPriority={variant === 'hero' ? 'high' : 'auto'}
             loading={variant === 'about' ? 'lazy' : 'eager'}
             className="profile-photo h-full w-full object-cover object-[center_18%]"
+            {...(variant === 'hero'
+              ? ({ fetchpriority: 'high' } as { fetchpriority: 'high' })
+              : {})}
           />
         ) : (
           <span className={`flex h-full w-full items-center justify-center bg-ink-850 font-display italic text-champagne-200 ${

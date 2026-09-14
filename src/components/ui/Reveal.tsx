@@ -19,10 +19,10 @@ export default function Reveal({ children, className, delay = 0 }: Props) {
     <motion.div
       className={className}
       data-reveal
-      initial={{ opacity: 0, y: 18 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={revealViewport}
-      transition={{ duration: 0.65, ease: easeOut, delay }}
+      transition={{ duration: 0.55, ease: easeOut, delay }}
     >
       {children}
     </motion.div>

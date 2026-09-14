@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowUp, Linkedin } from 'lucide-react';
-import { navLinks, profile } from '@/data/portfolio';
+import { ArrowUp, Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { navLinks, profile, whatsappChatUrl } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
 
 function BackToTop() {
@@ -19,7 +19,7 @@ function BackToTop() {
         <motion.button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-champagne-400 text-void shadow-glow"
+          className="fixed bottom-5 right-5 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-champagne-400 text-void shadow-glow transition-transform duration-220 ease-out hover:scale-105 active:scale-95"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
@@ -33,6 +33,8 @@ function BackToTop() {
 }
 
 export default function Footer() {
+  const whatsappHref = whatsappChatUrl(profile.whatsapp.trim() || profile.phone.trim());
+
   return (
     <footer className="relative border-t border-white/5 px-4 pb-8 pt-16 sm:px-6">
       <div className="absolute inset-x-0 top-0 h-px hairline" />
@@ -40,7 +42,7 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr_0.7fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-champagne-400/30 font-display italic text-champagne-200">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-champagne-400/30 font-display text-sm font-medium text-champagne-200">
                 {profile.initials}
               </span>
               <div>
@@ -73,7 +75,7 @@ export default function Footer() {
                       e.preventDefault();
                       goHomeHash(link.href);
                     }}
-                    className="text-sm text-ink-300 transition-colors hover:text-champagne-200"
+                    className="text-sm text-ink-300 transition-colors duration-220 hover:text-champagne-200"
                   >
                     {link.label}
                   </a>
@@ -90,14 +92,27 @@ export default function Footer() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-ink-200 hover:text-champagne-200"
+                  className="inline-flex items-center gap-2 text-sm text-ink-200 transition-colors duration-220 hover:text-champagne-200"
                 >
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               )}
               {profile.email && (
-                <a href={`mailto:${profile.email}`} className="text-sm text-ink-200 hover:text-champagne-200">
-                  {profile.email}
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="inline-flex items-center gap-2 text-sm text-ink-200 transition-colors duration-220 hover:text-champagne-200"
+                >
+                  <Mail className="h-4 w-4" /> {profile.email}
+                </a>
+              )}
+              {whatsappHref && (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-ink-200 transition-colors duration-220 hover:text-champagne-200"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
                 </a>
               )}
             </div>

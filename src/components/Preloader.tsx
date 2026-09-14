@@ -41,7 +41,7 @@ export default function Preloader() {
           transition={{ duration: 0.65, ease: easeOut }}
         >
           <motion.div
-            className="mb-8 font-display text-6xl italic text-champagne-300"
+            className="mb-8 font-display text-6xl font-medium tracking-tight text-champagne-300"
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: easeOut }}

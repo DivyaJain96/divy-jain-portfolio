@@ -10,7 +10,7 @@ export default function Process() {
     <section id="process" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="09"
+          icon={Search}
           kicker="How I work"
           title="A calm process for"
           italic="predictable delivery."
@@ -27,9 +27,9 @@ export default function Process() {
                     <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 text-champagne-300">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <span className="font-display text-3xl italic text-white/10">{step.step}</span>
+                    <span className="font-display text-3xl font-medium text-white/10">{step.step}</span>
                   </div>
-                  <h3 className="text-2xl text-ink-100">{step.title}</h3>
+                  <h3 className="text-xl font-medium tracking-tight text-ink-100">{step.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-300">{step.description}</p>
                 </article>
               </Reveal>

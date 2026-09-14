@@ -67,7 +67,7 @@ export default function ThankYou() {
           </motion.p>
 
           <motion.h1
-            className="mt-4 text-4xl text-ink-100 sm:text-5xl"
+            className="mt-4 text-[1.85rem] font-medium tracking-tight text-ink-100 sm:text-5xl"
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6, ease: easeOut }}

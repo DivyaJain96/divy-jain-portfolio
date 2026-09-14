@@ -10,8 +10,8 @@ import {
   type ReactElement,
   type ReactNode,
 } from 'react';
-import { AlertCircle, ArrowUpRight, Linkedin, Loader2, MapPin, Send, Wifi, WifiOff } from 'lucide-react';
-import { profile } from '@/data/portfolio';
+import { AlertCircle, ArrowUpRight, Linkedin, Loader2, Mail, MapPin, MessageCircle, Send, Wifi, WifiOff } from 'lucide-react';
+import { profile, whatsappChatUrl } from '@/data/portfolio';
 import {
   INQUIRY_MESSAGES,
   inquiryErrorMessage,
@@ -129,16 +129,24 @@ export default function Contact() {
     }
   };
 
+  const whatsappNumber = profile.whatsapp.trim() || profile.phone.trim();
+  const whatsappHref = whatsappChatUrl(whatsappNumber);
+
   return (
     <section id="contact" className="section-padding relative overflow-hidden">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px hairline" />
       <div className="container-max">
         <div className="grid items-start gap-10 lg:grid-cols-[0.88fr_1.12fr]">
           <Reveal>
-            <p className="kicker">11 / Contact</p>
-            <h2 className="mt-5 text-4xl text-ink-100 sm:text-5xl lg:text-6xl">
+            <div className="mb-5 flex items-center gap-3">
+              <span className="flex h-7 w-7 shrink-0 items-center justify-center text-champagne-400" aria-hidden>
+                <Mail className="h-4 w-4" strokeWidth={1.75} />
+              </span>
+              <span className="kicker !gap-0 before:hidden">Contact</span>
+            </div>
+            <h2 className="text-[1.85rem] font-medium leading-[1.12] tracking-tight text-ink-100 sm:text-4xl lg:text-5xl">
               Let’s build
-              <span className="mt-2 block italic text-champagne-300">something great.</span>
+              <span className="mt-2 block font-medium text-champagne-300">something great.</span>
             </h2>
             <p className="mt-5 max-w-md text-ink-200">
               Have an idea, project, or technical challenge? Whether you need backend development, APIs, system
@@ -149,6 +157,38 @@ export default function Contact() {
             </p>
 
             <div className="mt-8 space-y-3">
+              {profile.email && (
+                <a
+                  href={`mailto:${profile.email}`}
+                  className="contact-link panel group flex items-center justify-between rounded-2xl px-4 py-4"
+                >
+                  <span className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-champagne-300 transition-transform duration-220 ease-out group-hover:-translate-y-0.5" />
+                    <span>
+                      <span className="block text-xs text-ink-400">Email</span>
+                      <span className="text-ink-100">{profile.email}</span>
+                    </span>
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-ink-400 transition-transform duration-220 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              )}
+              {whatsappHref && (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="contact-link panel group flex items-center justify-between rounded-2xl px-4 py-4"
+                >
+                  <span className="flex items-center gap-3">
+                    <MessageCircle className="h-5 w-5 text-champagne-300 transition-transform duration-220 ease-out group-hover:-translate-y-0.5" />
+                    <span>
+                      <span className="block text-xs text-ink-400">WhatsApp</span>
+                      <span className="text-ink-100">{whatsappNumber}</span>
+                    </span>
+                  </span>
+                  <ArrowUpRight className="h-4 w-4 text-ink-400 transition-transform duration-220 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              )}
               <div className="panel flex items-center justify-between rounded-2xl px-4 py-4">
                 <span className="flex items-center gap-3">
                   <MapPin className="h-5 w-5 text-champagne-300" />
@@ -163,16 +203,16 @@ export default function Contact() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="panel flex items-center justify-between rounded-2xl px-4 py-4 transition-colors hover:border-champagne-400/30"
+                  className="contact-link panel group flex items-center justify-between rounded-2xl px-4 py-4"
                 >
                   <span className="flex items-center gap-3">
-                    <Linkedin className="h-5 w-5 text-champagne-300" />
+                    <Linkedin className="h-5 w-5 text-champagne-300 transition-transform duration-220 ease-out group-hover:-translate-y-0.5" />
                     <span>
                       <span className="block text-xs text-ink-400">LinkedIn</span>
                       <span className="text-ink-100">Connect with Divy</span>
                     </span>
                   </span>
-                  <ArrowUpRight className="h-4 w-4 text-ink-400" />
+                  <ArrowUpRight className="h-4 w-4 text-ink-400 transition-transform duration-220 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               )}
             </div>
@@ -262,11 +302,11 @@ export default function Contact() {
               >
                 {status === 'loading' ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" /> Sending inquiry...
+                    <Loader2 className="h-4 w-4 animate-spin" /> Connecting...
                   </>
                 ) : (
                   <>
-                    <Send className="h-4 w-4" /> Send inquiry
+                    <Send className="h-4 w-4" /> Let's connect
                   </>
                 )}
               </button>
@@ -310,7 +350,7 @@ function Field({
 
   return (
     <label className={`block text-sm ${className}`} htmlFor={id}>
-      <span className="mb-2 flex items-center justify-between gap-3 text-ink-200">
+      <span className="mb-2 flex items-center justify-between gap-3 text-[0.8125rem] font-medium tracking-[0.01em] text-ink-200">
         <span>
           {label}
           {required && <span className="ml-1 text-champagne-400">*</span>}

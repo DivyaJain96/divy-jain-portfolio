@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Highlights from '@/components/Highlights';
-import Recognition from '@/components/Recognition';
+import Recognition, { SHOW_RECOGNITION } from '@/components/Recognition';
 import Skills from '@/components/Skills';
 import Experience from '@/components/Experience';
 import Projects from '@/components/Projects';
@@ -50,7 +50,7 @@ function HomePage() {
           <Skills />
           <Highlights />
           <Projects />
-          <Recognition />
+          {SHOW_RECOGNITION ? <Recognition /> : null}
           <Experience />
           <WhyMe />
           <Process />

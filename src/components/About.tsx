@@ -1,9 +1,12 @@
 import { focusAreas, profile, stats, strengths } from '@/data/portfolio';
+import { Cable, ListChecks, Server, Sparkles, UserRound } from 'lucide-react';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import ProfilePortrait from './ui/ProfilePortrait';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
+
+const focusIcons = { Server, Cable, ListChecks, Sparkles } as const;
 
 function Stat({
   value,
@@ -21,7 +24,7 @@ function Stat({
   const count = useCountUp(value, 1600, inView && !display);
   return (
     <div className="panel rounded-2xl p-5">
-      <div className="font-display text-4xl text-ink-100">
+      <div className="font-display text-3xl font-medium tracking-tight text-ink-100 sm:text-4xl">
         {display ?? (
           <>
             {count}
@@ -41,7 +44,7 @@ export default function About() {
     <section id="about" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="01"
+          icon={UserRound}
           kicker="About"
           title="A Software Developer who"
           italic="owns the backend path."
@@ -53,7 +56,7 @@ export default function About() {
             <div className="panel relative h-full overflow-hidden rounded-[1.7rem] p-8">
               <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-champagne-400/10 blur-2xl" />
               <ProfilePortrait variant="about" />
-              <h3 className="mt-6 text-3xl text-ink-100">{profile.name}</h3>
+              <h3 className="mt-6 text-2xl font-medium tracking-tight text-ink-100">{profile.name}</h3>
               <p className="mt-2 text-ink-300">{profile.role}</p>
               <p className="mt-1 text-sm text-ink-400">{profile.tagline}</p>
               <div className="mt-6 flex flex-wrap gap-2">
@@ -77,17 +80,20 @@ export default function About() {
                 <Stat {...stat} inView={inView} />
               </Reveal>
             ))}
-            {focusAreas.map((item, i) => (
+            {focusAreas.map((item, i) => {
+              const Icon = focusIcons[item.icon as keyof typeof focusIcons] || Server;
+              return (
               <Reveal key={item.title} delay={0.12 + i * 0.06}>
                 <article className="panel h-full rounded-2xl p-5">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">
-                    0{i + 1}
-                  </p>
-                  <h3 className="mt-3 text-2xl text-ink-100">{item.title}</h3>
+                  <span className="flex h-7 w-7 items-center justify-center text-champagne-400" aria-hidden>
+                    <Icon className="h-4 w-4" strokeWidth={1.75} />
+                  </span>
+                  <h3 className="mt-3 text-xl font-medium tracking-tight text-ink-100">{item.title}</h3>
                   <p className="mt-2 text-sm text-ink-300">{item.text}</p>
                 </article>
               </Reveal>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -95,7 +101,7 @@ export default function About() {
           {strengths.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-white/8 bg-white/[0.03] px-4 py-2 text-sm text-ink-200"
+              className="interactive-chip rounded-full border border-white/8 bg-white/[0.03] px-4 py-2 text-sm text-ink-200"
             >
               {item}
             </span>

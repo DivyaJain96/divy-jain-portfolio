@@ -10,7 +10,7 @@ export default function Highlights() {
     <section id="highlights" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="04"
+          icon={Workflow}
           kicker="Problems I take on"
           title="Solving complex"
           italic="technical problems."
@@ -27,7 +27,7 @@ export default function Highlights() {
                   <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-champagne-400/20 bg-champagne-400/5 text-champagne-300">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 text-xl text-ink-100">{item.title}</h3>
+                  <h3 className="mt-5 text-lg font-medium tracking-tight text-ink-100">{item.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-ink-300">{item.text}</p>
                 </article>
               </Reveal>

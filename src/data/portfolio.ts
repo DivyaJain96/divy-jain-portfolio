@@ -12,6 +12,7 @@ export const profile = {
     'performance optimization',
   ],
   tagline: 'Java · Spring Boot · Backend · APIs · Integrations',
+  // Direct contact. Leave empty to hide the matching Contact/Footer links — do not use placeholders.
   email: '',
   phone: '',
   whatsapp: '',
@@ -47,18 +48,22 @@ export const focusAreas = [
   {
     title: 'Reliable backends',
     text: 'Java and Spring Boot applications with clear business logic — built to stay maintainable after launch.',
+    icon: 'Server',
   },
   {
     title: 'Integrations that stick',
     text: 'Payments, meetings, and third-party APIs connected through webhooks, notifications, and sync — not one-off scripts.',
+    icon: 'Cable',
   },
   {
     title: 'Less manual work',
     text: 'I look for the steps people still do by hand and move them into the workflow: receipts, mappings, status updates.',
+    icon: 'ListChecks',
   },
   {
     title: 'Always sharpening',
     text: 'Continuously building skill in Java, Spring Boot, microservices, system design, and scalable backend architecture.',
+    icon: 'Sparkles',
   },
 ];
 
@@ -181,7 +186,17 @@ export const featuredTech = [
   'Git',
 ];
 
-export const experience = [
+export type TimelineEntry = {
+  role: string;
+  organization: string;
+  duration: string;
+  location: string;
+  type: string;
+  summary: string;
+  contributions: string[];
+};
+
+export const experience: TimelineEntry[] = [
   {
     role: 'Software Developer',
     organization: 'Backend systems, integrations, and business applications',
@@ -197,10 +212,13 @@ export const experience = [
       'Supported mapping, validation, and rollout for large data moves, plus debugging when production misbehaved',
     ],
   },
+];
+
+export const education: TimelineEntry[] = [
   {
-    role: 'B.S. Computer Science',
+    role: 'B.Sc. Computer Science',
     organization: 'Computer science foundation',
-    duration: 'Education',
+    duration: '',
     location: '',
     type: 'Education',
     summary:
@@ -210,7 +228,22 @@ export const experience = [
       'Carried that habit into readable code and explicit contracts',
     ],
   },
+  {
+    role: 'MCA',
+    organization: '',
+    duration: '',
+    location: '',
+    type: 'Education',
+    summary: 'Completed after B.Sc.',
+    contributions: [],
+  },
 ];
+
+/** Build a wa.me chat URL from a configured number. Empty input returns an empty href. */
+export function whatsappChatUrl(raw: string) {
+  const digits = raw.replace(/\D/g, '');
+  return digits ? `https://wa.me/${digits}` : '';
+}
 
 export const projects = [
   {

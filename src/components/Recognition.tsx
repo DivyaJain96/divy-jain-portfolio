@@ -3,12 +3,17 @@ import { recognitions } from '@/data/portfolio';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
+/** Set to true to restore the Recognition section on the homepage. */
+export const SHOW_RECOGNITION = false;
+
 export default function Recognition() {
+  if (!SHOW_RECOGNITION) return null;
+
   return (
     <section id="recognition" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="06"
+          icon={Award}
           kicker="Recognition"
           title="Noted for execution"
           italic="and ownership."
@@ -23,7 +28,7 @@ export default function Recognition() {
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-champagne-400/25 bg-champagne-400/8 text-champagne-300">
                   <Award className="h-5 w-5" />
                 </span>
-                <h3 className="mt-5 text-2xl text-ink-100 sm:text-[1.7rem]">{item.title}</h3>
+                <h3 className="mt-5 text-xl font-medium tracking-tight text-ink-100 sm:text-[1.45rem]">{item.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-ink-300">{item.text}</p>
               </article>
             </Reveal>

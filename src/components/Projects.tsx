@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { ArrowUpRight, ChevronDown, Github } from 'lucide-react';
+import { ArrowUpRight, ChevronDown, Folder, Github } from 'lucide-react';
 import { projects } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
 import Reveal from './ui/Reveal';
@@ -63,8 +63,8 @@ function ProjectCard({
         }`}
       >
         <div className={`relative overflow-hidden ${featured ? 'min-h-[240px]' : 'h-44'}`}>
-          <div className={`absolute inset-0 bg-gradient-to-br ${visualTone[project.visual] || visualTone.api} transition-transform duration-700 group-hover:scale-105`} />
-          <div className="absolute inset-0 bg-grid-fine bg-[size:28px_28px] opacity-40 transition-transform duration-700 group-hover:scale-110" />
+          <div className={`absolute inset-0 bg-gradient-to-br ${visualTone[project.visual] || visualTone.api} transition-transform duration-500 ease-out group-hover:scale-[1.03]`} />
+          <div className="absolute inset-0 bg-grid-fine bg-[size:28px_28px] opacity-40 transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
           <div className="absolute left-5 top-5 flex flex-wrap gap-2">
             {project.featured && (
               <span className="rounded-full border border-champagne-400/30 bg-champagne-400/10 px-2.5 py-1 text-xs text-champagne-200">
@@ -75,13 +75,13 @@ function ProjectCard({
               {project.category}
             </span>
           </div>
-          <div className="absolute bottom-5 left-5 font-display text-5xl italic text-white/10 transition-transform duration-500 group-hover:scale-110">
+          <div className="absolute bottom-5 left-5 font-display text-5xl font-medium text-white/10 transition-transform duration-500 ease-out group-hover:scale-105">
             {project.title.charAt(0)}
           </div>
         </div>
 
         <div className="p-6 sm:p-7">
-          <h3 className="text-2xl text-ink-100 transition-colors duration-300 group-hover:text-champagne-200 sm:text-3xl">
+          <h3 className="text-xl font-medium tracking-tight text-ink-100 transition-colors duration-220 ease-out group-hover:text-champagne-200 sm:text-2xl">
             {project.title}
           </h3>
 
@@ -92,7 +92,7 @@ function ProjectCard({
                   key={metric.label}
                   className="rounded-2xl border border-champagne-400/20 bg-champagne-400/8 px-3 py-3"
                 >
-                  <p className="font-display text-2xl text-champagne-200 sm:text-3xl">{metric.value}</p>
+                  <p className="font-display text-xl font-medium text-champagne-200 sm:text-2xl">{metric.value}</p>
                   <p className="mt-1 text-xs text-ink-300">{metric.label}</p>
                 </div>
               ))}
@@ -120,7 +120,7 @@ function ProjectCard({
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
-              className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm text-champagne-200 transition-colors hover:text-champagne-100"
+              className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-champagne-200 transition-colors duration-220 hover:text-champagne-100"
               aria-expanded={open}
             >
               {open ? 'Hide details' : 'View details'}
@@ -170,7 +170,7 @@ export default function Projects() {
     <section id="projects" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="05"
+          icon={Folder}
           kicker="Selected work"
           title="Case studies from"
           italic="systems I have owned."
@@ -186,7 +186,7 @@ export default function Projects() {
               className={`min-h-11 rounded-full px-4 py-2 text-sm transition-all duration-300 ${
                 filter === item
                   ? 'bg-champagne-400 text-void shadow-glow'
-                  : 'border border-white/10 text-ink-200 hover:border-champagne-400/40 hover:text-ink-100'
+                  : 'border border-white/10 text-ink-200 transition-colors duration-220 hover:border-champagne-400/40 hover:text-ink-100'
               }`}
               aria-pressed={filter === item}
             >

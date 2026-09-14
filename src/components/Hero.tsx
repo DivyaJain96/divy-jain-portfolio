@@ -67,7 +67,7 @@ export default function Hero() {
             {profile.role}
           </motion.p>
 
-          <h1 className="mt-3 text-5xl leading-[0.95] text-ink-100 sm:text-6xl lg:text-7xl xl:text-[5.4rem]">
+          <h1 className="mt-3 text-[2.65rem] font-medium leading-[1.02] tracking-tight text-ink-100 sm:text-6xl lg:text-7xl xl:text-[4.85rem]">
             <span className="block overflow-hidden">
               <motion.span
                 className="block"
@@ -80,7 +80,7 @@ export default function Hero() {
             </span>
             <span className="block overflow-hidden">
               <motion.span
-                className="block italic text-champagne-300"
+                className="block font-medium text-champagne-300"
                 initial={reduced ? false : { y: '110%' }}
                 animate={play ? { y: 0 } : { y: '110%' }}
                 transition={{ duration: 0.9, ease: easeOut, delay: 0.28 }}
@@ -91,7 +91,7 @@ export default function Hero() {
           </h1>
 
           <motion.p
-            className="mt-6 max-w-xl text-xl text-ink-100 sm:text-2xl"
+            className="mt-6 max-w-xl text-lg leading-snug tracking-tight text-ink-100 sm:text-xl lg:text-[1.35rem]"
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.65, ease: easeOut, delay: 0.4 }}
@@ -100,7 +100,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.p
-            className="mt-3 max-w-xl text-lg text-ink-300"
+            className="mt-3 max-w-xl text-base leading-relaxed text-ink-300 sm:text-lg"
             initial={reduced ? false : { opacity: 0, y: 16 }}
             animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.65, ease: easeOut, delay: 0.5 }}
@@ -173,7 +173,7 @@ export default function Hero() {
                 href={profile.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-ink-200 transition-colors hover:border-champagne-400/40 hover:text-champagne-200"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 text-ink-200 transition-colors duration-220 hover:border-champagne-400/40 hover:text-champagne-200"
               >
                 <Linkedin className="h-4 w-4" />
                 LinkedIn

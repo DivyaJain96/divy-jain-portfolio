@@ -24,8 +24,8 @@ function SkillCard({
     const y = e.clientY - rect.top;
     el.style.setProperty('--mx', `${x}px`);
     el.style.setProperty('--my', `${y}px`);
-    const rx = ((y - rect.height / 2) / rect.height) * -6;
-    const ry = ((x - rect.width / 2) / rect.width) * 6;
+    const rx = ((y - rect.height / 2) / rect.height) * -3;
+    const ry = ((x - rect.width / 2) / rect.width) * 3;
     el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg)`;
   };
 
@@ -47,16 +47,16 @@ function SkillCard({
         }}
       >
         <div className="mb-5 flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-void/40 text-champagne-300 transition-transform duration-300 group-hover:scale-105 group-hover:border-champagne-400/30">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-void/40 text-champagne-300 transition-transform duration-220 ease-out group-hover:scale-105 group-hover:border-champagne-400/30">
             <Icon className="h-5 w-5" />
           </span>
-          <h3 className="text-2xl text-ink-100">{group.title}</h3>
+          <h3 className="text-xl font-medium tracking-tight text-ink-100">{group.title}</h3>
         </div>
         <div className="flex flex-wrap gap-2">
           {group.skills.map((skill) => (
             <span
               key={skill.name}
-              className="rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200 transition-colors group-hover:border-champagne-400/20"
+              className="interactive-chip rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200"
             >
               {skill.name}
             </span>
@@ -72,7 +72,7 @@ export default function Skills() {
     <section id="skills" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="03"
+          icon={Code2}
           kicker="Capabilities"
           title="A stack centered on"
           italic="Java and backend systems."
@@ -84,7 +84,7 @@ export default function Skills() {
             {primaryStack.map((skill) => (
               <span
                 key={skill}
-                className="rounded-full border border-champagne-400/30 bg-champagne-400/10 px-3.5 py-1.5 text-sm text-champagne-100"
+                className="interactive-chip rounded-full border border-champagne-400/30 bg-champagne-400/10 px-3.5 py-1.5 text-sm text-champagne-100"
               >
                 {skill}
               </span>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { Award, ArrowUpRight, Code2, Folder, Layers, Mail, Menu, UserRound, X } from 'lucide-react';
+import { ArrowUpRight, Briefcase, Code2, Folder, Layers, Mail, Menu, UserRound, X } from 'lucide-react';
 import { navLinks, profile } from '@/data/portfolio';
 import { useReady } from '@/context/ReadyContext';
 import { easeOut, goHomeHash } from '@/lib/motion';
@@ -13,7 +13,7 @@ const NAV_ICONS = {
   '#services': Layers,
   '#skills': Code2,
   '#projects': Folder,
-  '#experience': Award,
+  '#experience': Briefcase,
   '#contact': Mail,
 } as const;
 
@@ -66,7 +66,7 @@ export default function Navbar() {
   return (
     <>
       <motion.header
-        className="site-header fixed inset-x-0 top-0 z-50 overflow-hidden"
+        className={`site-header fixed inset-x-0 top-0 overflow-hidden ${open ? 'z-[70]' : 'z-50'}`}
         initial={reduced ? false : { y: -28, opacity: 0 }}
         animate={play ? { y: 0, opacity: 1 } : { y: -28, opacity: 0 }}
         transition={{ duration: 0.7, ease: easeOut, delay: 0.05 }}
@@ -89,7 +89,7 @@ export default function Navbar() {
             aria-label="Divy Jain — back to top"
           >
             <ProfilePortrait variant="nav" />
-            <span className="hidden font-medium text-ink-100 sm:block">{profile.name}</span>
+            <span className="hidden text-sm font-medium tracking-tight text-ink-100 sm:block">{profile.name}</span>
           </a>
 
           <div className="hidden items-center lg:flex">
@@ -101,7 +101,7 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => go(e, link.href)}
                   aria-current={isActive ? 'location' : undefined}
-                  className={`relative rounded-full px-2.5 py-2 text-[13px] transition-colors xl:px-3 ${
+                  className={`nav-link rounded-full px-2.5 py-2 text-[13px] xl:px-3 ${
                     isActive ? 'text-ink-100' : 'text-ink-300 hover:text-ink-100'
                   }`}
                 >
@@ -125,7 +125,7 @@ export default function Navbar() {
             </a>
             <button
               type="button"
-              className="flex h-11 w-11 items-center justify-center rounded-full glass text-ink-100 lg:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full glass text-ink-100 transition-transform duration-220 ease-out hover:scale-[1.04] active:scale-95 lg:hidden"
               aria-label={open ? 'Close menu' : 'Open menu'}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -168,8 +168,8 @@ export default function Navbar() {
                     href={link.href}
                     onClick={(e) => go(e, link.href)}
                     aria-current={isActive ? 'location' : undefined}
-                    className={`flex min-h-12 items-center gap-3 rounded-2xl px-4 py-3 text-lg ${
-                      isActive ? 'bg-white/5 text-champagne-200' : 'text-ink-100'
+                    className={`flex min-h-12 items-center gap-3 rounded-2xl px-4 py-3 text-[1.05rem] font-medium tracking-tight transition-colors duration-220 ease-out ${
+                      isActive ? 'bg-white/5 text-champagne-200' : 'text-ink-100 hover:bg-white/[0.04] active:bg-white/[0.07]'
                     }`}
                     initial={{ opacity: 0, x: 12 }}
                     animate={{ opacity: 1, x: 0 }}

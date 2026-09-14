@@ -10,7 +10,7 @@ export default function WhyMe() {
     <section id="why" className="section-padding relative">
       <div className="container-max">
         <SectionHeader
-          index="08"
+          icon={ShieldCheck}
           kicker="Why work with me"
           title="Hire someone who treats"
           italic="code as a long-term asset."
@@ -25,7 +25,7 @@ export default function WhyMe() {
                 <article className="panel relative h-full overflow-hidden rounded-[1.4rem] p-6">
                   <div className="absolute right-0 top-0 h-24 w-24 translate-x-8 -translate-y-8 rounded-full bg-champagne-400/8 blur-2xl" />
                   <Icon className="h-5 w-5 text-champagne-300" />
-                  <h3 className="mt-4 text-2xl text-ink-100">{item.title}</h3>
+                  <h3 className="mt-4 text-xl font-medium tracking-tight text-ink-100">{item.title}</h3>
                   <p className="mt-3 text-sm text-ink-300">{item.text}</p>
                 </article>
               </Reveal>

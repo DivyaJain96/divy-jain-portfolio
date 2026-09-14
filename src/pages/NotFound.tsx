@@ -36,7 +36,7 @@ export default function NotFound() {
       <main className="relative z-10 flex min-h-[calc(100svh-88px)] items-center justify-center px-4 pb-16 pt-6">
         <div className="mx-auto w-full max-w-xl text-center">
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-champagne-400">404</p>
-          <h1 className="mt-4 text-4xl text-ink-100 sm:text-5xl">This page is not here.</h1>
+          <h1 className="mt-4 text-[1.85rem] font-medium tracking-tight text-ink-100 sm:text-5xl">This page is not here.</h1>
           <p className="mx-auto mt-5 max-w-md text-ink-300">
             The link may be outdated. The portfolio, selected work, and contact form are still on the home page.
           </p>
