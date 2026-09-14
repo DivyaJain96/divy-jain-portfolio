@@ -1,6 +1,6 @@
 export default function AmbientBackground() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden="true">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden [clip-path:inset(0)]" aria-hidden="true">
       <div className="absolute inset-0 bg-void" />
       <div className="absolute inset-0 bg-grid-fine bg-[size:72px_72px] opacity-60" />
       <div className="hero-aurora absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,174,124,0.09),transparent_42%)]" />

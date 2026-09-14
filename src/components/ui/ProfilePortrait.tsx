@@ -52,7 +52,7 @@ export default function ProfilePortrait({ variant = 'about', className = '' }: P
 
   const frame = (
     <div
-      className={`profile-frame group/photo relative ${sizeClass[variant]} ${radiusClass[variant]} ${className}`}
+      className={`profile-frame group/photo relative ${variant === 'nav' ? 'profile-frame-nav' : ''} ${sizeClass[variant]} ${radiusClass[variant]} ${className}`}
     >
       {variant !== 'nav' && !reduced && <span className="profile-glow" aria-hidden />}
       <div className={`profile-inner ${radiusClass[variant]}`}>
@@ -65,7 +65,7 @@ export default function ProfilePortrait({ variant = 'about', className = '' }: P
             decoding="async"
             fetchPriority={variant === 'hero' ? 'high' : 'auto'}
             loading={variant === 'about' ? 'lazy' : 'eager'}
-            className="h-full w-full object-cover object-[center_18%]"
+            className="profile-photo h-full w-full object-cover object-[center_18%]"
           />
         ) : (
           <span className={`flex h-full w-full items-center justify-center bg-ink-850 font-display italic text-champagne-200 ${

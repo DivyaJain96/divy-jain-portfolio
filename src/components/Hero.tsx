@@ -32,9 +32,9 @@ export default function Hero() {
   }, [reduced, play]);
 
   return (
-    <section id="hero" className="relative min-h-[100svh] overflow-hidden pt-28 pb-16">
+    <section id="hero" className="relative min-h-[100svh] overflow-hidden pt-28 pb-16 [clip-path:inset(0)]">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_40%,rgba(201,174,124,0.08),transparent_36%)]" />
-      <div className="hero-aurora pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-champagne-400/10 blur-3xl" />
+      <div className="hero-aurora pointer-events-none absolute -left-24 top-28 h-72 w-72 rounded-full bg-champagne-400/10 blur-3xl lg:top-10" />
       <div className="pointer-events-none absolute inset-0 opacity-30 lg:hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-champagne-400/[0.06] via-void/40 to-void" />
       </div>
@@ -211,20 +211,24 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative mt-16 overflow-hidden border-y border-white/5 py-4">
-        <div className="marquee-track flex w-max gap-10 whitespace-nowrap px-6 text-sm text-ink-400">
-          {[...featuredTech, ...featuredTech].map((tech, i) => (
-            <span key={`${tech}-${i}`} className="inline-flex items-center gap-10">
-              {tech}
-              <span className="text-champagne-500">/</span>
-            </span>
+      <div className="marquee-wrap relative mt-16 overflow-hidden border-y border-white/5 py-4">
+        <div className="marquee-track text-sm text-ink-400">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="marquee-group" aria-hidden={copy === 1}>
+              {featuredTech.map((tech) => (
+                <span key={`${copy}-${tech}`} className="inline-flex items-center gap-10">
+                  {tech}
+                  <span className="text-champagne-500">/</span>
+                </span>
+              ))}
+            </div>
           ))}
         </div>
       </div>
 
       <a
         href="#about"
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-400 transition-colors hover:text-ink-100 md:flex"
+        className="absolute bottom-[5.75rem] left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-400 transition-colors hover:text-ink-100 lg:flex"
         aria-label="Scroll to about"
       >
         <span className="font-mono text-[10px] uppercase tracking-[0.22em]">Scroll</span>

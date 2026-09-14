@@ -30,24 +30,6 @@ export function isBrowserOffline() {
   return typeof navigator !== 'undefined' && navigator.onLine === false;
 }
 
-function buildMessage(data: InquiryPayload) {
-  return [
-    'NEW PORTFOLIO INQUIRY',
-    '',
-    'Full Name:',
-    data.name,
-    '',
-    'Email Address:',
-    data.email,
-    '',
-    'Mobile Number:',
-    data.mobile,
-    '',
-    'City:',
-    data.city,
-  ].join('\n');
-}
-
 function isAbortError(error: unknown) {
   return error instanceof DOMException
     ? error.name === 'AbortError'
@@ -101,13 +83,10 @@ export async function submitInquiry(data: InquiryPayload): Promise<void> {
         subject: `New Portfolio Inquiry from ${data.name}`,
         from_name: 'Divy Jain Portfolio',
         replyto: data.email,
-        name: data.name,
-        email: data.email,
         'Full Name': data.name,
         'Email Address': data.email,
         'Mobile Number': data.mobile,
         City: data.city,
-        message: buildMessage(data),
         botcheck: data.botcheck || '',
       }),
     });
