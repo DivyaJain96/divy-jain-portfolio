@@ -119,7 +119,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-champagne-400">Navigate</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-champagne-400">Legal</p>
             <ul className="mt-4 space-y-2">
               <li>
                 <a
