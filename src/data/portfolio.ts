@@ -33,8 +33,8 @@ export const profile = {
 export const stats = [
   { label: 'Years of Experience', value: 3, suffix: '+' },
   { label: 'Work areas showcased', value: 6, suffix: '' },
-  { label: 'Primary stack', value: 0, suffix: '', display: 'Java' },
-  { label: 'Focus', value: 0, suffix: '', display: 'Enterprise' },
+  { label: 'Primary Stack', value: 0, suffix: '', display: 'Java' },
+  { label: 'Development Focus', value: 0, suffix: '', display: 'Enterprise Software & Web Applications' },
 ];
 
 export const strengths = [

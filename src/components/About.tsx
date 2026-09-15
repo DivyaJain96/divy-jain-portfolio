@@ -24,7 +24,11 @@ function Stat({
   const count = useCountUp(value, 1600, inView && !display);
   return (
     <div className="panel rounded-2xl p-5">
-      <div className="font-display text-3xl font-medium tracking-tight text-ink-100 sm:text-4xl">
+      <div
+        className={`font-display font-medium tracking-tight text-ink-100 ${
+          display && display.length > 20 ? 'text-[1.35rem] leading-snug sm:text-2xl' : 'text-3xl sm:text-4xl'
+        }`}
+      >
         {display ?? (
           <>
             {count}
