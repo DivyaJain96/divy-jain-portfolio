@@ -1,9 +1,9 @@
-import { ArrowLeftRight, Bug, Cable, Database, Gauge, ListChecks, Sparkles, Workflow } from 'lucide-react';
+import { ArrowLeftRight, Bug, Cable, Database, Gauge, ListChecks, Monitor, Sparkles, Workflow } from 'lucide-react';
 import { highlights } from '@/data/portfolio';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
-const icons = { Workflow, Gauge, Cable, Database, ArrowLeftRight, Bug, Sparkles, ListChecks } as const;
+const icons = { Workflow, Gauge, Cable, Database, ArrowLeftRight, Bug, Sparkles, ListChecks, Monitor } as const;
 
 export default function Highlights() {
   return (
@@ -14,7 +14,7 @@ export default function Highlights() {
           kicker="Problems I take on"
           title="Solving complex"
           italic="technical problems."
-          copy="The work I look for is rarely a greenfield demo. It is usually a workflow, an API, or a data path that has become expensive to live with."
+          copy="The work I look for is rarely a greenfield demo. It is usually a workflow, a screen, an API, or a data path that has become expensive to live with."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

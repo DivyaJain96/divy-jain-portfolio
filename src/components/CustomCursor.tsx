@@ -7,7 +7,7 @@ function isDesktopMouse() {
 }
 
 export default function CustomCursor() {
-  const [desktop] = useState(() => (typeof window === 'undefined' ? false : isDesktopMouse()));
+  const [desktop, setDesktop] = useState(() => (typeof window === 'undefined' ? false : isDesktopMouse()));
   const [origin, setOrigin] = useState<{ x: number; y: number } | null>(null);
   const dotRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
@@ -16,6 +16,14 @@ export default function CustomCursor() {
   const hover = useRef({ interactive: false, card: false });
   const rafRef = useRef(0);
   const started = useRef(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)');
+    const sync = () => setDesktop(mq.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    return () => mq.removeEventListener('change', sync);
+  }, []);
 
   useEffect(() => {
     if (!desktop) return;
@@ -47,6 +55,8 @@ export default function CustomCursor() {
     return () => {
       window.removeEventListener('mousemove', onMove);
       document.documentElement.classList.remove('cursor-ready');
+      started.current = false;
+      setOrigin(null);
     };
   }, [desktop]);
 

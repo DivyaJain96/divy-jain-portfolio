@@ -149,8 +149,8 @@ export default function Contact() {
               <span className="mt-2 block font-medium text-champagne-300">something great.</span>
             </h2>
             <p className="mt-5 max-w-md text-ink-200">
-              Have an idea, project, or technical challenge? Whether you need backend development, APIs, system
-              integrations, frontend/UI for a business application, or help improving an existing product, I would be
+              Have an idea, project, or technical challenge? Whether you need enterprise software, web application
+              development, APIs, system integrations, frontend/UI, or help improving an existing product, I would be
               glad to discuss it.
             </p>
             <p className="mt-4 max-w-md text-ink-300">

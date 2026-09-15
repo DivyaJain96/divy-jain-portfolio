@@ -1,11 +1,11 @@
 import { useRef, useState } from 'react';
 import { ArrowUpRight, ChevronDown, Folder, Github } from 'lucide-react';
-import { projects } from '@/data/portfolio';
+import { projects, workAreas } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
-const filters = ['All', 'Systems', 'Integrations', 'Performance', 'Reliability'] as const;
+const filters = ['All', 'Systems', 'Integrations', 'Performance', 'Reliability', 'Automation'] as const;
 
 const visualTone: Record<string, string> = {
   commerce: 'from-champagne-400/20 via-ink-850 to-ink-900',
@@ -174,8 +174,22 @@ export default function Projects() {
           kicker="Selected work"
           title="Case studies from"
           italic="systems I have owned."
-          copy="Five pieces of work, written so a client or recruiter can see the problem, the approach, and the result — without confidential internals."
+          copy="Selected case studies from enterprise software and web applications I have worked on — written so a client or recruiter can see the problem, the approach, and the result, without confidential internals."
         />
+
+        <Reveal className="mb-8">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">Application areas</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {workAreas.map((area) => (
+              <span
+                key={area}
+                className="interactive-chip rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+        </Reveal>
 
         <Reveal className="mb-8 flex flex-wrap gap-2">
           {filters.map((item) => (

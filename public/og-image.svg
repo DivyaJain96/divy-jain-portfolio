@@ -13,6 +13,6 @@
   <rect x="0" y="0" width="1200" height="3" fill="url(#gold)"/>
   <text x="80" y="170" font-family="ui-monospace, monospace" font-size="18" letter-spacing="6" fill="#c9ae7c">SOFTWARE DEVELOPER</text>
   <text x="80" y="300" font-family="Georgia, serif" font-size="86" fill="#e8e4dc">Divy Jain</text>
-  <text x="80" y="380" font-family="Georgia, serif" font-size="34" font-style="italic" fill="#c9ae7c">Java, Spring Boot, APIs, and complete business applications.</text>
-  <text x="80" y="470" font-family="sans-serif" font-size="22" fill="#9a958c">Backend · Frontend/UI · REST APIs · Integrations · Ahmedabad</text>
+  <text x="80" y="380" font-family="Georgia, serif" font-size="28" font-style="italic" fill="#c9ae7c">Enterprise software and web applications — Java &amp; Spring Boot.</text>
+  <text x="80" y="470" font-family="sans-serif" font-size="22" fill="#9a958c">Frontend/UI · Backend · REST APIs · Integrations · Ahmedabad</text>
 </svg>

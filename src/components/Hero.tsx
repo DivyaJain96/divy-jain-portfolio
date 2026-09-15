@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { ArrowDown, ArrowUpRight, Linkedin } from 'lucide-react';
+import { ArrowUpRight, Linkedin } from 'lucide-react';
 import { featuredTech, profile } from '@/data/portfolio';
 import { useReady } from '@/context/ReadyContext';
 import { easeOut, goHomeHash } from '@/lib/motion';
@@ -200,8 +200,8 @@ export default function Hero() {
               System map
             </div>
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
-              <p className="max-w-[16rem] text-sm text-ink-200">
-                Gateway, services, and data — the shape of systems I like to build.
+              <p className="max-w-[18rem] text-sm text-ink-200">
+                Frontend, backend, data, APIs, integrations, automation, and production — the shape of systems I like to build.
               </p>
               <span className="hidden font-mono text-[10px] uppercase tracking-widest text-champagne-400 sm:block">
                 Live canvas
@@ -225,19 +225,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-
-      <a
-        href="#about"
-        onClick={(e) => {
-          e.preventDefault();
-          goHomeHash('#about');
-        }}
-        className="absolute bottom-[5.75rem] left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-500 transition-colors duration-220 hover:text-champagne-300 lg:flex"
-        aria-label="Scroll to explore"
-      >
-        <span className="font-mono text-[10px] uppercase tracking-[0.18em]">Scroll to explore</span>
-        <ArrowDown className="h-3.5 w-3.5 opacity-60" />
-      </a>
     </section>
   );
 }

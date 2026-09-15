@@ -1,10 +1,36 @@
 import { useRef } from 'react';
-import { Cable, Code2, Database, GitBranch, Layers, Monitor, Server } from 'lucide-react';
-import { primaryStack, skillGroups } from '@/data/portfolio';
+import {
+  Cable,
+  Cloud,
+  Code2,
+  Database,
+  GitBranch,
+  Layers,
+  Monitor,
+  Rocket,
+  Server,
+  Sparkles,
+  Waypoints,
+  Wrench,
+} from 'lucide-react';
+import { applicationFlow, primaryStack, skillGroups } from '@/data/portfolio';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
-const icons = { Code2, Monitor, Server, Cable, Database, GitBranch, Layers } as const;
+const icons = {
+  Code2,
+  Monitor,
+  Server,
+  Cable,
+  Database,
+  GitBranch,
+  Layers,
+  Cloud,
+  Wrench,
+  Rocket,
+  Sparkles,
+  Waypoints,
+} as const;
 
 function SkillCard({
   group,
@@ -19,6 +45,7 @@ function SkillCard({
   const onMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia('(hover: none)').matches) return;
     const rect = el.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -77,10 +104,32 @@ export default function Skills() {
         <SectionHeader
           icon={Code2}
           kicker="Capabilities"
-          title="A stack centered on"
-          italic="Java, with UI to match."
-          copy="Backend is the primary stack. Frontend/UI — HTML, CSS, Bootstrap, JavaScript, jQuery, JSP, and React (working knowledge) — is how complete business applications get finished. React is an additional frontend skill, not the main focus."
+          title="A stack for"
+          italic="enterprise software & web applications."
+          copy="Software Developer with full-stack, hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production environments. React is working knowledge — not the primary specialization."
         />
+
+        <Reveal className="mb-6 panel rounded-[1.5rem] p-5 sm:p-6">
+          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">
+            Application flow
+          </p>
+          <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {applicationFlow.map((step, i) => {
+              const Icon = icons[step.icon as keyof typeof icons] || Server;
+              return (
+                <div
+                  key={step.title}
+                  className="interactive-chip flex min-h-12 items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2.5"
+                >
+                  <span className="font-mono text-[10px] text-champagne-400">{String(i + 1).padStart(2, '0')}</span>
+                  <Icon className="h-3.5 w-3.5 shrink-0 text-champagne-400" strokeWidth={1.75} />
+                  <span className="text-sm text-ink-100">{step.title}</span>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
+
         <Reveal className="mb-6 panel rounded-[1.5rem] p-5 sm:p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">Primary stack</p>
           <div className="mt-4 flex flex-wrap gap-2.5">
@@ -114,7 +163,7 @@ export default function Skills() {
                   {group.skills.map((skill) => (
                     <span
                       key={skill.name}
-                      className="rounded-full border border-white/6 bg-transparent px-2.5 py-1 text-xs text-ink-400"
+                      className="interactive-chip rounded-full border border-white/6 bg-transparent px-2.5 py-1 text-xs text-ink-400"
                     >
                       {skill.name}
                     </span>

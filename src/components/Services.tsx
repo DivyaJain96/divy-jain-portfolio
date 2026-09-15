@@ -1,10 +1,10 @@
-import { ArrowUpRight, Cable, Database, Gauge, Layers, Server, Waypoints } from 'lucide-react';
+import { ArrowUpRight, Cable, Database, Gauge, Layers, Monitor, Rocket, Server, Waypoints } from 'lucide-react';
 import { services } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
-const icons = { Server, Waypoints, Cable, Layers, Gauge, Database } as const;
+const icons = { Server, Waypoints, Cable, Layers, Gauge, Database, Monitor, Rocket } as const;
 
 export default function Services() {
   return (
@@ -15,7 +15,7 @@ export default function Services() {
           kicker="What I do"
           title="Core expertise,"
           italic="said plainly."
-          copy="I specialize in reliable backends, APIs, and integrations — and I also build the frontend/UI that sits on them for complete business applications."
+          copy="I develop enterprise software and web applications across frontend/UI, backend, databases, APIs, third-party integrations, automation, and production support — not a single layer in isolation."
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

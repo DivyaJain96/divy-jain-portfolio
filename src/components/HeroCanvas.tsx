@@ -11,24 +11,22 @@ type Node = {
 };
 
 const GRAPH = [
-  { id: 'gw', label: 'API Gateway', ox: 0.5, oy: 0.2 },
-  { id: 'auth', label: 'Auth', ox: 0.2, oy: 0.4 },
-  { id: 'svc', label: 'Services', ox: 0.52, oy: 0.48 },
-  { id: 'int', label: 'Integrations', ox: 0.82, oy: 0.38 },
-  { id: 'sql', label: 'PostgreSQL', ox: 0.26, oy: 0.74 },
-  { id: 'doc', label: 'MongoDB', ox: 0.58, oy: 0.8 },
-  { id: 'cache', label: 'Webhooks', ox: 0.82, oy: 0.68 },
+  { id: 'ui', label: 'UI', ox: 0.18, oy: 0.28 },
+  { id: 'be', label: 'Backend', ox: 0.5, oy: 0.2 },
+  { id: 'db', label: 'Database', ox: 0.82, oy: 0.32 },
+  { id: 'api', label: 'APIs', ox: 0.28, oy: 0.58 },
+  { id: 'int', label: 'Integrations', ox: 0.72, oy: 0.58 },
+  { id: 'prod', label: 'Production', ox: 0.5, oy: 0.82 },
 ];
 
 const EDGES: [string, string][] = [
-  ['gw', 'auth'],
-  ['gw', 'svc'],
-  ['gw', 'int'],
-  ['svc', 'sql'],
-  ['svc', 'doc'],
-  ['svc', 'cache'],
-  ['auth', 'sql'],
-  ['int', 'cache'],
+  ['ui', 'be'],
+  ['be', 'db'],
+  ['ui', 'api'],
+  ['be', 'api'],
+  ['api', 'int'],
+  ['db', 'prod'],
+  ['int', 'prod'],
 ];
 
 export default function HeroCanvas() {

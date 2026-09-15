@@ -6,14 +6,14 @@ export const profile = {
   lastName: 'Jain',
   initials: 'DJ',
   role: 'Software Developer',
-  headline: 'Backend-focused Software Developer building complete business applications — from UI to APIs and integrations.',
+  headline: 'Enterprise Software & Web Application Development',
   rotatingFocus: [
-    'Java & Spring Boot backends',
+    'frontend/UI for web applications',
+    'Java & Spring Boot applications',
     'REST APIs and integrations',
-    'frontend/UI for business apps',
-    'performance optimization',
+    'automation and production support',
   ],
-  tagline: 'Java · Spring Boot · Backend · Frontend/UI · APIs · Integrations',
+  tagline: 'Java · Spring Boot · Full-stack · Frontend/UI · Backend · APIs · Integrations · Production',
   // Direct contact. Leave empty to hide the matching Contact/Footer links — do not use placeholders.
   email: '',
   phone: '',
@@ -21,8 +21,8 @@ export const profile = {
   calendly: '',
   github: '',
   linkedin: 'https://www.linkedin.com/in/divyajain9649',
-  bio: 'I am a backend-focused Software Developer with hands-on experience building frontend/UI layers for complete business applications — Java, Spring Boot, SQL, APIs, and the screens that sit on top of them.',
-  bioShort: 'Backend-focused Software Developer with hands-on frontend/UI experience for complete business applications.',
+  bio: 'Developing and enhancing enterprise-level business software and web applications across frontend/UI, backend development, databases, REST APIs, third-party integrations, automation, and production support.',
+  bioShort: 'Software Developer working on enterprise software and web applications — full-stack across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
   // Actual profile photo lives at public/profile.jpg and is served as /profile.jpg.
   photo: '/profile.jpg',
   resume: '/resume.pdf',
@@ -34,45 +34,70 @@ export const stats = [
   { label: 'Years of Experience', value: 3, suffix: '+' },
   { label: 'Work areas showcased', value: 6, suffix: '' },
   { label: 'Primary stack', value: 0, suffix: '', display: 'Java' },
-  { label: 'Focus', value: 0, suffix: '', display: 'Backend' },
+  { label: 'Focus', value: 0, suffix: '', display: 'Enterprise' },
 ];
 
 export const strengths = [
   'Java & Spring Boot',
+  'Frontend / UI',
   'REST APIs',
   'System integrations',
-  'Frontend / UI for business apps',
+  'Database & data work',
   'Performance work',
-  'Production debugging',
+  'Production support',
 ];
 
 export const focusAreas = [
   {
-    title: 'Reliable backends',
-    text: 'Java and Spring Boot applications with clear business logic — built to stay maintainable after launch.',
-    icon: 'Server',
+    title: 'Complete applications',
+    text: 'Frontend/UI, backend logic, databases, APIs, integrations, and production support — one flow, not disconnected layers.',
+    icon: 'Layers',
   },
   {
     title: 'Integrations that stick',
-    text: 'Payments, meetings, and third-party APIs connected through webhooks, notifications, and sync — not one-off scripts.',
+    text: 'Payments, meetings, messaging, and third-party APIs connected through webhooks, notifications, and sync — not one-off scripts.',
     icon: 'Cable',
   },
   {
     title: 'Less manual work',
-    text: 'I look for the steps people still do by hand and move them into the workflow: receipts, mappings, status updates.',
+    text: 'I look for the steps people still do by hand and move them into the workflow: receipts, mappings, status updates, and alerts.',
     icon: 'ListChecks',
   },
   {
     title: 'Always sharpening',
-    text: 'Continuously building skill in Java, Spring Boot, microservices, system design, and the frontend/UI that completes a business application.',
+    text: 'Continuously building skill in Java, Spring Boot, system design, and the frontend/UI that completes enterprise software and web applications.',
     icon: 'Sparkles',
   },
+];
+
+export const applicationFlow = [
+  { title: 'Frontend / UI', icon: 'Monitor' },
+  { title: 'Backend Development', icon: 'Server' },
+  { title: 'Business Logic', icon: 'Layers' },
+  { title: 'Database', icon: 'Database' },
+  { title: 'REST APIs', icon: 'Waypoints' },
+  { title: 'Third-Party Integrations', icon: 'Cable' },
+  { title: 'Automation', icon: 'Sparkles' },
+  { title: 'Deployment / Production Support', icon: 'Rocket' },
+];
+
+export const workAreas = [
+  'VConnect',
+  'VMS',
+  'LJS CRM',
+  'Quiz',
+  'Design Portal',
+  'Bakers Magic Enterprise',
+  'Prashant Corner',
+  'Brahmras',
+  'Cloud Portal',
+  'Lalaji and Sons',
 ];
 
 export const primaryStack = [
   'Java',
   'Spring Boot',
-  'Backend Development',
+  'Frontend / UI',
   'REST APIs',
   'Microservices',
   'SQL',
@@ -82,12 +107,13 @@ export const primaryStack = [
 
 export const skillGroups = [
   {
-    title: 'Backend & Frameworks',
+    title: 'Languages & Backend',
     icon: 'Server',
     accent: 'champagne',
     skills: [
       { name: 'Java' },
       { name: 'Advanced Java' },
+      { name: 'Spring' },
       { name: 'Spring Boot' },
       { name: 'Spring MVC' },
       { name: 'Hibernate' },
@@ -98,25 +124,10 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'Databases & Performance',
-    icon: 'Database',
-    accent: 'signal',
-    skills: [
-      { name: 'SQL' },
-      { name: 'PostgreSQL' },
-      { name: 'MySQL' },
-      { name: 'MongoDB' },
-      { name: 'Database Optimization' },
-      { name: 'Database Indexing' },
-      { name: 'Query Optimization' },
-      { name: 'Database Migrations' },
-    ],
-  },
-  {
     title: 'Frontend / UI',
     icon: 'Monitor',
     accent: 'fog',
-    note: 'React is working knowledge — not the primary focus.',
+    note: 'React is working knowledge — an additional frontend skill, not the primary specialization.',
     skills: [
       { name: 'HTML' },
       { name: 'CSS' },
@@ -130,10 +141,11 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'Integrations',
+    title: 'APIs & Integrations',
     icon: 'Cable',
     accent: 'champagne',
     skills: [
+      { name: 'REST APIs' },
       { name: 'REST API Integration' },
       { name: 'Webhooks' },
       { name: 'Third-Party API Integration' },
@@ -141,7 +153,54 @@ export const skillGroups = [
       { name: 'System Integration' },
       { name: 'Razorpay Payment Gateway Integration' },
       { name: 'Microsoft Teams Integration' },
+      { name: 'WhatsApp / Interakt' },
+      { name: 'Jira Integration' },
       { name: 'Data Integration' },
+    ],
+  },
+  {
+    title: 'Database & Data',
+    icon: 'Database',
+    accent: 'signal',
+    skills: [
+      { name: 'SQL' },
+      { name: 'PostgreSQL' },
+      { name: 'MySQL' },
+      { name: 'MongoDB' },
+      { name: 'Database Optimization' },
+      { name: 'Database Indexing' },
+      { name: 'Query Optimization' },
+      { name: 'Database Migration' },
+      { name: 'Data Mapping' },
+      { name: 'Data Validation' },
+      { name: 'Data Correction' },
+    ],
+  },
+  {
+    title: 'Deployment & Environment',
+    icon: 'Cloud',
+    accent: 'signal',
+    note: 'Hands-on experience with application deployment, CI/CD workflows, cloud environments, server access and production support.',
+    skills: [
+      { name: 'AWS' },
+      { name: 'Azure' },
+      { name: 'Jenkins' },
+      { name: 'Terminus' },
+      { name: 'Git' },
+      { name: 'GitHub' },
+    ],
+  },
+  {
+    title: 'Development Tools',
+    icon: 'Wrench',
+    accent: 'fog',
+    skills: [
+      { name: 'IntelliJ IDEA' },
+      { name: 'Spring Tool Suite (STS)' },
+      { name: 'Visual Studio Code' },
+      { name: 'NetBeans' },
+      { name: 'Postman' },
+      { name: 'Bruno' },
     ],
   },
   {
@@ -149,8 +208,6 @@ export const skillGroups = [
     icon: 'GitBranch',
     accent: 'signal',
     skills: [
-      { name: 'Git' },
-      { name: 'GitHub' },
       { name: 'Code Refactoring' },
       { name: 'Debugging' },
       { name: 'Problem Solving' },
@@ -177,7 +234,7 @@ export const skillGroups = [
 export const featuredTech = [
   'Java',
   'Spring Boot',
-  'Backend Development',
+  'Frontend / UI',
   'REST APIs',
   'Microservices',
   'System Integrations',
@@ -189,9 +246,13 @@ export const featuredTech = [
   'JavaScript',
   'Bootstrap',
   'jQuery',
+  'JSP',
   'Webhooks',
   'Razorpay',
   'Microsoft Teams',
+  'AWS',
+  'Azure',
+  'Jenkins',
   'Git',
 ];
 
@@ -209,18 +270,22 @@ export type TimelineEntry = {
 export const experience: TimelineEntry[] = [
   {
     role: 'Software Developer',
-    organization: 'Backend-focused development across complete business applications',
+    organization: 'Enterprise software & web application development',
     duration: '3+ years',
     location: 'Ahmedabad, Gujarat, India',
     type: 'Professional',
     summary:
-      'Backend-focused Software Developer with hands-on experience building frontend/UI layers for complete business applications — from the first validation through production fixes.',
+      'Developed and enhanced enterprise-level business software and web applications using Java, Spring Boot, SQL, JSP, JavaScript, jQuery and related technologies — full-stack across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
     contributions: [
-      'Took ownership of subscription and billing backend flows: rules, validations, sync, and later improvements',
-      'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP) to Java/Spring Boot APIs so screens and services work as one product',
-      'Connected payment and meeting systems so events, notifications, and recordings live inside the product',
-      'Cut redundant DataTable/API calls and kept the path usable at 5,000+ records',
-      'Supported mapping, validation, and rollout for large data moves, plus debugging when production misbehaved',
+      'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, JSTL) to Java/Spring Boot APIs so screens and services work as one product',
+      'Owned subscription and billing workflows including add hardware/other, renewal, new license, reactive, upsell/upgrade, add-ons, validations, V2 synchronization, migration, and post-live hardening',
+      'Optimized DataTable and API workflows, reducing redundant API calls from 4–9 per action to a single optimized call, reducing API load by 60%+ while supporting 5,000+ records.',
+      'Integrated Razorpay Payment Link with webhook-based automated receipt generation, reducing manual payment receipt processing.',
+      'Developed Microsoft Teams meeting integration supporting create, cancel and reschedule workflows, email notifications, recording, playback and meeting-related automation.',
+      'Implemented scheduler-based automation for WhatsApp campaigns, lead assignment, client inactivity alerts, email alerts, and developer error monitoring',
+      'Supported large-scale data migration with business, customer, plan and transaction mapping, validation, correction, migration scripts, and production rollout',
+      'Enhanced CRM, visitor management, Quiz bulk Excel import, asset management with digital signatures, credit-note/refund and e-invoice workflows, purchase/stock reporting, and Jira comment synchronization',
+      'Supported application deployments, production troubleshooting, root-cause analysis and post-release issue resolution across multiple enterprise systems and web applications.',
     ],
   },
 ];
@@ -260,9 +325,9 @@ export const projects = [
     problem:
       'Subscription and billing rules were spread across validations, status changes, integrations, and later data moves — easy to break and hard to own.',
     solution:
-      'I built and owned the backend path: business logic, validations, billing steps, integrations, synchronization, migration support, and follow-up after production.',
+      'I developed the UI and backend path together: subscription types (add hardware/other, renewal, new license, reactive, upsell/upgrade, add-ons), validations, billing, V2 synchronization, migration support, and follow-up after production.',
     impact: 'A single, reliable workflow instead of disconnected steps — with room to correct issues after go-live.',
-    tags: ['Java', 'Spring Boot', 'Backend', 'Billing', 'SQL'],
+    tags: ['Java', 'Spring Boot', 'JSP', 'JavaScript', 'SQL', 'Billing'],
     category: 'Systems',
     liveDemo: '',
     github: '',
@@ -273,8 +338,8 @@ export const projects = [
     title: 'Payment Gateway & Webhook Automation',
     problem: 'Payment confirmation and receipt generation still needed manual follow-up after the gateway recorded a payment.',
     solution:
-      'I integrated Razorpay payment workflows and used webhook events so the backend could process the payment and generate the receipt automatically.',
-    impact: 'Helped eliminate manual receipt generation by moving the work onto webhook-driven backend processing.',
+      'Integrated Razorpay Payment Link with webhook-based automated receipt generation, reducing manual payment receipt processing.',
+    impact: 'Manual receipt follow-up moved onto webhook-driven processing inside the product.',
     tags: ['Razorpay', 'Webhooks', 'REST APIs', 'Java'],
     category: 'Integrations',
     liveDemo: '',
@@ -286,7 +351,7 @@ export const projects = [
     title: 'Meeting Scheduling & Microsoft Teams Integration',
     problem: 'Creating, changing, and following up on meetings lived outside the product, so the team had to handle the lifecycle by hand.',
     solution:
-      'I integrated Microsoft Teams so the application could create, cancel, and reschedule meetings, send email notifications, and support recording and playback.',
+      'Developed Microsoft Teams meeting integration supporting create, cancel and reschedule workflows, email notifications, recording, playback and meeting-related automation.',
     impact: 'The meeting lifecycle — including notifications and recordings — sits inside the same workflow as the rest of the product.',
     tags: ['Microsoft Teams', 'REST APIs', 'Notifications', 'Java'],
     category: 'Integrations',
@@ -299,13 +364,13 @@ export const projects = [
     title: 'API & Data Workflow Optimization',
     problem: 'Multiple redundant API calls caused unnecessary load and inefficient data processing on DataTable-driven screens.',
     solution:
-      'I redesigned the workflow so those screens use a single, more efficient API path instead of repeating the same calls.',
+      'Optimized DataTable and API workflows, reducing redundant API calls from 4–9 per action to a single optimized call, reducing API load by 60%+ while supporting 5,000+ records.',
     impact: '60%+ API load reduction while supporting 5,000+ records.',
     metrics: [
       { value: '60%+', label: 'API load reduction' },
       { value: '5,000+', label: 'Records supported' },
     ],
-    tags: ['Java', 'SQL', 'API Optimization', 'DataTables'],
+    tags: ['Java', 'SQL', 'API Optimization', 'DataTables', 'JavaScript'],
     category: 'Performance',
     liveDemo: '',
     github: '',
@@ -314,9 +379,9 @@ export const projects = [
   },
   {
     title: 'Large-Scale Data Migration & Validation',
-    problem: 'Moving business and plan data into a new structure is risky when mapping, validation, and corrections happen too late.',
+    problem: 'Moving business, customer, plan, and transaction data into a new structure is risky when mapping, validation, and corrections happen too late.',
     solution:
-      'I worked on mapping, validation, data correction, transformation, and production rollout support so the move could be checked before and during cutover.',
+      'I worked on business mapping, customer mapping, plan mapping, transaction mapping, data validation, migration scripts, and production rollout support so the move could be checked before and during cutover.',
     impact: 'A more controlled migration path, with explicit validation and support when production needed corrections.',
     tags: ['SQL', 'Migrations', 'Validation', 'Production'],
     category: 'Reliability',
@@ -325,9 +390,35 @@ export const projects = [
     featured: false,
     visual: 'inventory',
   },
+  {
+    title: 'Enterprise Systems & Process Automation',
+    problem:
+      'CRM, visitor management, campaigns, quizzes, assets, and billing documents still needed too many manual steps across day-to-day operations.',
+    solution:
+      'I enhanced enterprise software and web applications across frontend and backend — lead nurturing, WhatsApp/Interakt automation, Quiz bulk Excel import, asset allocation with digital signatures, credit-note/refund and e-invoice workflows, purchase/stock reporting, and Jira comment synchronization.',
+    impact: 'Repeated operational work folded into the product, with scheduler-driven alerts and less manual follow-up.',
+    tags: ['Java', 'JSP', 'JavaScript', 'SQL', 'Automation', 'Integrations'],
+    category: 'Automation',
+    liveDemo: '',
+    github: '',
+    featured: false,
+    visual: 'people',
+  },
 ];
 
 export const services = [
+  {
+    title: 'Enterprise Software & Web Application Development',
+    icon: 'Layers',
+    value: 'Workflows for CRM, billing, operations, and subscriptions — from the screens teams use to the services underneath.',
+    plain: 'Improving the CRM, billing, subscription, and operations flows teams use every day, from UI to backend.',
+  },
+  {
+    title: 'Frontend / UI Development',
+    icon: 'Monitor',
+    value: 'Business-facing screens with HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, and JSTL, wired to Java APIs.',
+    plain: 'The interfaces people actually use — built to work with the backend, not as a separate layer.',
+  },
   {
     title: 'Java Backend Development',
     icon: 'Server',
@@ -344,13 +435,13 @@ export const services = [
     title: 'System & Third-Party Integrations',
     icon: 'Cable',
     value: 'Payment gateways, communication tools, and other services wired into the product with webhooks and events.',
-    plain: 'Wiring payments, meetings, and other tools into the product so events happen without extra manual steps.',
+    plain: 'Wiring payments, meetings, messaging, and other tools into the product so events happen without extra manual steps.',
   },
   {
-    title: 'Business Application Development',
-    icon: 'Layers',
-    value: 'Workflows for CRM, billing, operations, subscriptions — including the frontend/UI that teams use every day.',
-    plain: 'Improving the CRM, billing, subscription, and operations flows teams use every day, from screens to backend.',
+    title: 'Database & Data Solutions',
+    icon: 'Database',
+    value: 'SQL databases, query work, mapping, validation, migrations, and corrections that stay understandable in production.',
+    plain: 'Keeping business data accurate, queryable, and ready for production changes.',
   },
   {
     title: 'Performance Optimization',
@@ -359,18 +450,23 @@ export const services = [
     plain: 'Making screens and APIs faster and lighter as data and traffic grow.',
   },
   {
-    title: 'Database & Backend Solutions',
-    icon: 'Database',
-    value: 'SQL databases, migrations, query work, and backend logic that stay understandable in production.',
-    plain: 'Keeping business data accurate, queryable, and ready for production changes.',
+    title: 'Deployment & Production Support',
+    icon: 'Rocket',
+    value: 'Hands-on application deployment, CI/CD workflows, cloud environments, server access, and production issue resolution.',
+    plain: 'Helping releases land cleanly — and staying with the work when production needs a real diagnosis.',
   },
 ];
 
 export const highlights = [
   {
-    title: 'Backend workflow problems',
-    text: 'Business rules, validations, and status changes that have drifted into separate, hard-to-own paths.',
+    title: 'Application workflow problems',
+    text: 'UI and backend rules, validations, and status changes that have drifted into separate, hard-to-own paths.',
     icon: 'Workflow',
+  },
+  {
+    title: 'Frontend / UI delivery',
+    text: 'Business screens that need to stay clear, usable, and honestly connected to the APIs underneath.',
+    icon: 'Monitor',
   },
   {
     title: 'API performance issues',
@@ -379,7 +475,7 @@ export const highlights = [
   },
   {
     title: 'System integration challenges',
-    text: 'Payments, meetings, and third-party APIs that need to behave as part of the product — not as a side process.',
+    text: 'Payments, meetings, messaging, and third-party APIs that need to behave as part of the product — not as a side process.',
     icon: 'Cable',
   },
   {
@@ -394,12 +490,12 @@ export const highlights = [
   },
   {
     title: 'Production debugging',
-    text: 'Finding the actual cause of a live issue and fixing the backend path, not only the symptom.',
+    text: 'Finding the actual cause of a live issue and fixing the path — UI, API, or data — not only the symptom.',
     icon: 'Bug',
   },
   {
     title: 'Business automation',
-    text: 'Receipts, notifications, and status updates that still happen by hand.',
+    text: 'Receipts, notifications, campaigns, and status updates that still happen by hand.',
     icon: 'Sparkles',
   },
   {
@@ -427,8 +523,8 @@ export const reasons = [
     icon: 'Code2',
   },
   {
-    title: 'Scalable backend systems',
-    text: 'Java and Spring Boot services designed for real operations, with the frontend/UI wired in so the product is usable end to end.',
+    title: 'Full-stack enterprise software',
+    text: 'Java, Spring Boot, SQL, and the frontend/UI wired in so enterprise software and web applications are usable from screen to database to production.',
     icon: 'Gauge',
   },
   {

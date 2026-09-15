@@ -3,7 +3,7 @@ import { SITE_URL, profile } from '@/data/portfolio';
 
 const TITLE = 'Divy Jain | Java & Spring Boot Software Developer';
 const DESCRIPTION =
-  'Divy Jain is a backend-focused Software Developer in Ahmedabad building complete business applications with Java, Spring Boot, REST APIs, frontend/UI, microservices, and system integrations.';
+  'Divy Jain is a Software Developer in Ahmedabad developing enterprise software and web applications with Java, Spring Boot, frontend/UI development, backend development, REST APIs, microservices, and system integrations.';
 const CANONICAL = `${SITE_URL}/`;
 const IMAGE = `${SITE_URL}/og-image.svg`;
 
@@ -49,7 +49,10 @@ function upsertJsonLd() {
       'REST APIs',
       'Microservices',
       'System Integrations',
-      'Scalable Business Applications',
+      'SQL',
+      'PostgreSQL',
+      'Enterprise Software',
+      'Web Application Development',
     ],
   });
 }

@@ -14,7 +14,7 @@ export default function Experience() {
           kicker="Experience"
           title="How the work has"
           italic="grown in practice."
-          copy="Backend-focused Software Developer with hands-on frontend/UI development — Java, Spring Boot, APIs, databases, and integrations first, with the screens that complete the application."
+          copy="Software Developer with full-stack, hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production support — Java, Spring Boot, SQL, JSP, JavaScript, and related technologies."
         />
 
         <Timeline items={experience} followScroll />
@@ -102,7 +102,7 @@ function Timeline({ items, followScroll = false }: { items: TimelineEntry[]; fol
 
                 <div className={`${i % 2 === 1 ? 'md:col-start-1 md:row-start-1 md:pr-12' : ''}`}>
                   {(item.summary || item.contributions.length > 0) && (
-                    <div className="panel ml-10 rounded-[1.4rem] p-6 md:ml-0">
+                    <div className="panel ml-10 rounded-[1.4rem] p-6 transition-colors duration-220 group-hover:border-champagne-400/25 md:ml-0">
                       <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
                         {item.type}
                       </span>
@@ -120,7 +120,7 @@ function Timeline({ items, followScroll = false }: { items: TimelineEntry[]; fol
                     </div>
                   )}
                   {isEducation && !item.summary && item.contributions.length === 0 && (
-                    <div className="panel ml-10 rounded-[1.4rem] p-6 md:ml-0">
+                    <div className="panel ml-10 rounded-[1.4rem] p-6 transition-colors duration-220 group-hover:border-champagne-400/25 md:ml-0">
                       <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
                         {item.type}
                       </span>

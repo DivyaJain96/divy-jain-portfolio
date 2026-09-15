@@ -1,12 +1,12 @@
 import { focusAreas, profile, stats, strengths } from '@/data/portfolio';
-import { Cable, ListChecks, Server, Sparkles, UserRound } from 'lucide-react';
+import { Cable, Layers, ListChecks, Sparkles, UserRound } from 'lucide-react';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import ProfilePortrait from './ui/ProfilePortrait';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
-const focusIcons = { Server, Cable, ListChecks, Sparkles } as const;
+const focusIcons = { Layers, Cable, ListChecks, Sparkles } as const;
 
 function Stat({
   value,
@@ -47,8 +47,8 @@ export default function About() {
           icon={UserRound}
           kicker="About"
           title="A Software Developer who"
-          italic="builds complete applications."
-          copy="Backend is the primary focus — Java, Spring Boot, APIs, and data — with hands-on frontend/UI so the product is usable end to end. The aim is simple: systems that run cleaner and ask people to do less by hand."
+          italic="works across the stack."
+          copy="Hands-on experience developing enterprise-level business software and web applications across frontend, backend, databases, APIs, third-party integrations, automation, and production support. The aim is simple: systems that run cleaner and ask people to do less by hand."
         />
 
         <div ref={ref} className="grid gap-6 lg:grid-cols-12">
@@ -70,7 +70,7 @@ export default function About() {
               <p className="mt-6 text-sm leading-relaxed text-ink-300">{profile.bio}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-400">
                 Java, Spring Boot, and SQL on the backend. HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, and
-                React (working knowledge) when the interface needs to sit on that backend.
+                React (working knowledge) on the UI. Hands-on with databases, APIs, integrations, and production support.
               </p>
             </div>
           </Reveal>
@@ -82,7 +82,7 @@ export default function About() {
               </Reveal>
             ))}
             {focusAreas.map((item, i) => {
-              const Icon = focusIcons[item.icon as keyof typeof focusIcons] || Server;
+              const Icon = focusIcons[item.icon as keyof typeof focusIcons] || Layers;
               return (
               <Reveal key={item.title} delay={0.12 + i * 0.06}>
                 <article className="panel h-full rounded-2xl p-5">
