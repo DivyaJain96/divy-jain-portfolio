@@ -77,7 +77,7 @@ export default function Navbar() {
         <nav
           className={`flex w-full max-w-site items-center justify-between gap-3 rounded-full px-3 py-2 sm:px-4 transition-all duration-500 ${
             scrolled
-              ? 'glass shadow-lift max-lg:bg-void/90'
+              ? 'glass shadow-lift max-lg:bg-void/90 lg:bg-void/95'
               : 'border border-transparent bg-transparent max-lg:border-white/[0.06] max-lg:bg-void/80 max-lg:backdrop-blur-md'
           }`}
           aria-label="Primary"
