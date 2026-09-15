@@ -14,7 +14,7 @@ export default function Highlights() {
           kicker="Problems I take on"
           title="Solving complex"
           italic="technical problems."
-          copy="The work I look for is rarely a greenfield demo. It is usually a workflow, a screen, an API, or a data path that has become expensive to live with."
+          copy="The work I look for is rarely a greenfield demo. It is usually a workflow, a screen, an API, or a data path that has become expensive to maintain."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">

@@ -3,9 +3,11 @@ import { SITE_URL, profile } from '@/data/portfolio';
 
 const TITLE = 'Divy Jain | Java & Spring Boot Software Developer';
 const DESCRIPTION =
-  'Divy Jain is a Software Developer in Ahmedabad developing enterprise software and web applications with Java, Spring Boot, frontend/UI development, backend development, REST APIs, microservices, and system integrations.';
+  'Divy Jain is a Software Developer in Ahmedabad who builds enterprise software and web applications with Java and Spring Boot, covering frontend/UI, backend development, REST APIs, microservices, and system integrations.';
 const CANONICAL = `${SITE_URL}/`;
 const IMAGE = `${SITE_URL}/og-image.svg`;
+const PERSON_ID = `${CANONICAL}#person`;
+const WEBSITE_ID = `${CANONICAL}#website`;
 
 function upsertMeta(selector: string, attrs: Record<string, string>) {
   let el = document.head.querySelector(selector) as HTMLMetaElement | HTMLLinkElement | null;
@@ -28,31 +30,50 @@ function upsertJsonLd() {
   }
   el.textContent = JSON.stringify({
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: profile.name,
-    jobTitle: profile.role,
-    url: CANONICAL,
-    image: `${SITE_URL}${profile.photo}`,
-    description: DESCRIPTION,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Ahmedabad',
-      addressRegion: 'Gujarat',
-      addressCountry: 'IN',
-    },
-    sameAs: profile.linkedin ? [profile.linkedin] : undefined,
-    knowsAbout: [
-      'Java',
-      'Spring Boot',
-      'Backend Development',
-      'Frontend Development',
-      'REST APIs',
-      'Microservices',
-      'System Integrations',
-      'SQL',
-      'PostgreSQL',
-      'Enterprise Software',
-      'Web Application Development',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': PERSON_ID,
+        name: profile.name,
+        jobTitle: profile.role,
+        url: CANONICAL,
+        image: `${SITE_URL}${profile.photo}`,
+        description: DESCRIPTION,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Ahmedabad',
+          addressRegion: 'Gujarat',
+          addressCountry: 'IN',
+        },
+        sameAs: profile.linkedin ? [profile.linkedin] : undefined,
+        alumniOf: {
+          '@type': 'CollegeOrUniversity',
+          name: 'CHARUSAT University',
+        },
+        knowsAbout: [
+          'Java',
+          'Spring Boot',
+          'Backend Development',
+          'Frontend Development',
+          'REST APIs',
+          'Microservices',
+          'System Integrations',
+          'SQL',
+          'PostgreSQL',
+          'Hibernate',
+          'Enterprise Software',
+          'Web Application Development',
+        ],
+      },
+      {
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        url: CANONICAL,
+        name: profile.name,
+        description: DESCRIPTION,
+        inLanguage: 'en',
+        publisher: { '@id': PERSON_ID },
+      },
     ],
   });
 }
@@ -64,6 +85,8 @@ export default function Seo() {
     upsertMeta('meta[name="description"]', { name: 'description', content: DESCRIPTION });
     upsertMeta('meta[name="robots"]', { name: 'robots', content: 'index, follow' });
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' });
+    upsertMeta('meta[property="og:site_name"]', { property: 'og:site_name', content: profile.name });
+    upsertMeta('meta[property="og:locale"]', { property: 'og:locale', content: 'en_IN' });
     upsertMeta('meta[property="og:title"]', { property: 'og:title', content: TITLE });
     upsertMeta('meta[property="og:description"]', { property: 'og:description', content: DESCRIPTION });
     upsertMeta('meta[property="og:url"]', { property: 'og:url', content: CANONICAL });
@@ -76,6 +99,10 @@ export default function Seo() {
     upsertMeta('meta[name="twitter:title"]', { name: 'twitter:title', content: TITLE });
     upsertMeta('meta[name="twitter:description"]', { name: 'twitter:description', content: DESCRIPTION });
     upsertMeta('meta[name="twitter:image"]', { name: 'twitter:image', content: IMAGE });
+    upsertMeta('meta[name="twitter:image:alt"]', {
+      name: 'twitter:image:alt',
+      content: 'Divy Jain — Software Developer, Java and Spring Boot',
+    });
     upsertMeta('meta[name="geo.placename"]', { name: 'geo.placename', content: profile.location });
     upsertJsonLd();
   }, []);

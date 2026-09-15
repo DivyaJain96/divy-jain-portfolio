@@ -21,8 +21,8 @@ export const profile = {
   calendly: '',
   github: '',
   linkedin: 'https://www.linkedin.com/in/divyajain9649',
-  bio: 'Developing and enhancing enterprise-level business software and web applications across frontend/UI, backend development, databases, REST APIs, third-party integrations, automation, and production support.',
-  bioShort: 'Software Developer working on enterprise software and web applications — full-stack across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
+  bio: 'I develop and enhance enterprise-level business software and web applications across frontend/UI, backend development, databases, REST APIs, third-party integrations, automation, and production support.',
+  bioShort: 'Software Developer working on enterprise software and web applications — across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
   // Actual profile photo lives at public/profile.jpg and is served as /profile.jpg.
   photo: '/profile.jpg',
   resume: '/resume.pdf',
@@ -32,7 +32,7 @@ export const profile = {
 
 export const stats = [
   { label: 'Years of Experience', value: 3, suffix: '+' },
-  { label: 'Work areas showcased', value: 6, suffix: '' },
+  { label: 'Work Areas Showcased', value: 6, suffix: '' },
   { label: 'Primary Stack', value: 0, suffix: '', display: 'Java' },
   { label: 'Development Focus', value: 0, suffix: '', display: 'Enterprise Software & Web Applications' },
 ];
@@ -41,20 +41,20 @@ export const strengths = [
   'Java & Spring Boot',
   'Frontend / UI',
   'REST APIs',
-  'System integrations',
-  'Database & data work',
-  'Performance work',
-  'Production support',
+  'System Integrations',
+  'Database & Data Work',
+  'Performance Work',
+  'Production Support',
 ];
 
 export const focusAreas = [
   {
-    title: 'Complete applications',
+    title: 'Complete product flow',
     text: 'Frontend/UI, backend logic, databases, APIs, integrations, and production support — one flow, not disconnected layers.',
     icon: 'Layers',
   },
   {
-    title: 'Integrations that stick',
+    title: 'Reliable integrations',
     text: 'Payments, meetings, messaging, and third-party APIs connected through webhooks, notifications, and sync — not one-off scripts.',
     icon: 'Cable',
   },
@@ -64,7 +64,7 @@ export const focusAreas = [
     icon: 'ListChecks',
   },
   {
-    title: 'Always sharpening',
+    title: 'Always learning',
     text: 'Continuously building skill in Java, Spring Boot, system design, and the frontend/UI that completes enterprise software and web applications.',
     icon: 'Sparkles',
   },
@@ -180,7 +180,7 @@ export const skillGroups = [
     title: 'Deployment & Environment',
     icon: 'Cloud',
     accent: 'signal',
-    note: 'Hands-on experience with application deployment, CI/CD workflows, cloud environments, server access and production support.',
+    note: 'Hands-on experience with application deployment, CI/CD workflows, cloud environments, server access, and production support.',
     skills: [
       { name: 'AWS' },
       { name: 'Azure' },
@@ -270,22 +270,22 @@ export type TimelineEntry = {
 export const experience: TimelineEntry[] = [
   {
     role: 'Software Developer',
-    organization: 'Enterprise software & web application development',
+    organization: 'Enterprise Software & Web Application Development',
     duration: '3+ years',
     location: 'Ahmedabad, Gujarat, India',
     type: 'Professional',
     summary:
-      'Developed and enhanced enterprise-level business software and web applications using Java, Spring Boot, SQL, JSP, JavaScript, jQuery and related technologies — full-stack across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
+      'Developed and enhanced enterprise-level business software and web applications using Java, Spring Boot, SQL, JSP, JavaScript, jQuery, and related technologies — across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
     contributions: [
-      'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, JSTL) to Java/Spring Boot APIs so screens and services work as one product',
-      'Owned subscription and billing workflows including add hardware/other, renewal, new license, reactive, upsell/upgrade, add-ons, validations, V2 synchronization, migration, and post-live hardening',
+      'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, JSTL) to Java/Spring Boot APIs so screens and services work as one product.',
+      'Owned subscription and billing workflows including add hardware/other, renewal, new license, reactive, upsell/upgrade, add-ons, validations, V2 synchronization, migration, and post-live hardening.',
       'Optimized DataTable and API workflows, reducing redundant API calls from 4–9 per action to a single optimized call, reducing API load by 60%+ while supporting 5,000+ records.',
       'Integrated Razorpay Payment Link with webhook-based automated receipt generation, reducing manual payment receipt processing.',
-      'Developed Microsoft Teams meeting integration supporting create, cancel and reschedule workflows, email notifications, recording, playback and meeting-related automation.',
-      'Implemented scheduler-based automation for WhatsApp campaigns, lead assignment, client inactivity alerts, email alerts, and developer error monitoring',
-      'Supported large-scale data migration with business, customer, plan and transaction mapping, validation, correction, migration scripts, and production rollout',
-      'Enhanced CRM, visitor management, Quiz bulk Excel import, asset management with digital signatures, credit-note/refund and e-invoice workflows, purchase/stock reporting, and Jira comment synchronization',
-      'Supported application deployments, production troubleshooting, root-cause analysis and post-release issue resolution across multiple enterprise systems and web applications.',
+      'Developed Microsoft Teams meeting integration supporting create, cancel, and reschedule workflows, email notifications, recording, playback, and meeting-related automation.',
+      'Implemented scheduler-based automation for WhatsApp campaigns, lead assignment, client inactivity alerts, email alerts, and developer error monitoring.',
+      'Supported large-scale data migration with business, customer, plan, and transaction mapping, validation, correction, migration scripts, and production rollout.',
+      'Enhanced CRM, visitor management, Quiz bulk Excel import, asset management with digital signatures, credit-note/refund and e-invoice workflows, purchase/stock reporting, and Jira comment synchronization.',
+      'Supported application deployments, production troubleshooting, root-cause analysis, and post-release issue resolution across multiple enterprise systems and web applications.',
     ],
   },
 ];
@@ -319,9 +319,32 @@ export function whatsappChatUrl(raw: string) {
   return digits ? `https://wa.me/${digits}` : '';
 }
 
-export const projects = [
+export type Project = {
+  title: string;
+  summary: string;
+  contributions: string[];
+  problem: string;
+  solution: string;
+  impact: string;
+  metrics?: { value: string; label: string }[];
+  tags: string[];
+  category: string;
+  liveDemo: string;
+  github: string;
+  featured: boolean;
+  visual: string;
+};
+
+export const projects: Project[] = [
   {
     title: 'Subscription & Business Workflow Platform',
+    summary:
+      'Developed and enhanced subscription and billing workflows for enterprise business applications, covering plan changes, validations, billing, and later data moves. I built the UI and backend together so these rules live in one path instead of disconnected steps.',
+    contributions: [
+      'Add hardware/other, renewal, new license, reactive, upsell/upgrade, and add-on flows',
+      'Validations, billing, and V2 synchronization',
+      'Migration support and post-production follow-up',
+    ],
     problem:
       'Subscription and billing rules were spread across validations, status changes, integrations, and later data moves — easy to break and hard to own.',
     solution:
@@ -336,6 +359,13 @@ export const projects = [
   },
   {
     title: 'Payment Gateway & Webhook Automation',
+    summary:
+      'Payment confirmation and receipt generation still needed manual follow-up after the gateway recorded a payment. I integrated Razorpay Payment Link so webhook events could process the payment and generate the receipt automatically.',
+    contributions: [
+      'Razorpay Payment Link integration',
+      'Webhook-based automatic receipt generation',
+      'Reduced manual payment receipt processing',
+    ],
     problem: 'Payment confirmation and receipt generation still needed manual follow-up after the gateway recorded a payment.',
     solution:
       'Integrated Razorpay Payment Link with webhook-based automated receipt generation, reducing manual payment receipt processing.',
@@ -349,9 +379,16 @@ export const projects = [
   },
   {
     title: 'Meeting Scheduling & Microsoft Teams Integration',
+    summary:
+      'Creating, changing, and following up on meetings lived outside the product, so the team had to handle the lifecycle by hand. I developed Microsoft Teams meeting integration so create, cancel, reschedule, notifications, and recordings sit inside the same workflow.',
+    contributions: [
+      'Create, cancel, and reschedule meeting workflows',
+      'Email notifications',
+      'Recording, playback, and meeting-related automation',
+    ],
     problem: 'Creating, changing, and following up on meetings lived outside the product, so the team had to handle the lifecycle by hand.',
     solution:
-      'Developed Microsoft Teams meeting integration supporting create, cancel and reschedule workflows, email notifications, recording, playback and meeting-related automation.',
+      'Developed Microsoft Teams meeting integration supporting create, cancel, and reschedule workflows, email notifications, recording, playback, and meeting-related automation.',
     impact: 'The meeting lifecycle — including notifications and recordings — sits inside the same workflow as the rest of the product.',
     tags: ['Microsoft Teams', 'REST APIs', 'Notifications', 'Java'],
     category: 'Integrations',
@@ -362,6 +399,13 @@ export const projects = [
   },
   {
     title: 'API & Data Workflow Optimization',
+    summary:
+      'Multiple redundant API calls caused unnecessary load and inefficient data processing on DataTable-driven screens. I optimized the DataTable and API workflows so each action uses a single call instead of four to nine.',
+    contributions: [
+      'Reduced redundant API calls from 4–9 per action to a single optimized call',
+      '60%+ API load reduction',
+      'Support for 5,000+ records on DataTable-driven screens',
+    ],
     problem: 'Multiple redundant API calls caused unnecessary load and inefficient data processing on DataTable-driven screens.',
     solution:
       'Optimized DataTable and API workflows, reducing redundant API calls from 4–9 per action to a single optimized call, reducing API load by 60%+ while supporting 5,000+ records.',
@@ -379,6 +423,13 @@ export const projects = [
   },
   {
     title: 'Large-Scale Data Migration & Validation',
+    summary:
+      'Moving business, customer, plan, and transaction data into a new structure is risky when mapping, validation, and corrections happen too late. I worked on mapping, validation, migration scripts, and production rollout support so the move could be checked before and during cutover.',
+    contributions: [
+      'Business, customer, plan, and transaction mapping',
+      'Data validation and correction',
+      'Migration scripts and production rollout support',
+    ],
     problem: 'Moving business, customer, plan, and transaction data into a new structure is risky when mapping, validation, and corrections happen too late.',
     solution:
       'I worked on business mapping, customer mapping, plan mapping, transaction mapping, data validation, migration scripts, and production rollout support so the move could be checked before and during cutover.',
@@ -392,6 +443,13 @@ export const projects = [
   },
   {
     title: 'Enterprise Systems & Process Automation',
+    summary:
+      'CRM, visitor management, campaigns, quizzes, assets, and billing documents still needed too many manual steps across day-to-day operations. I enhanced these enterprise software and web application workflows across frontend and backend so repeated operational work could run inside the product.',
+    contributions: [
+      'CRM lead nurturing and WhatsApp/Interakt campaign automation',
+      'Quiz bulk Excel import and asset allocation with digital signatures',
+      'Credit-note/refund, e-invoice, purchase/stock reporting, and Jira comment synchronization',
+    ],
     problem:
       'CRM, visitor management, campaigns, quizzes, assets, and billing documents still needed too many manual steps across day-to-day operations.',
     solution:
@@ -460,7 +518,7 @@ export const services = [
 export const highlights = [
   {
     title: 'Application workflow problems',
-    text: 'UI and backend rules, validations, and status changes that have drifted into separate, hard-to-own paths.',
+    text: 'UI and backend rules, validations, and status changes that have drifted into separate paths that are hard to maintain.',
     icon: 'Workflow',
   },
   {
@@ -524,7 +582,7 @@ export const reasons = [
   },
   {
     title: 'Full-stack enterprise software',
-    text: 'Java, Spring Boot, SQL, and the frontend/UI wired in so enterprise software and web applications are usable from screen to database to production.',
+    text: 'Java, Spring Boot, SQL, and the frontend/UI wired in so enterprise software and web applications stay usable from screen to database to production.',
     icon: 'Gauge',
   },
   {
@@ -539,7 +597,7 @@ export const reasons = [
   },
   {
     title: 'APIs & integrations',
-    text: 'REST design, auth, and third-party systems connected with care for failure modes.',
+    text: 'REST design, authentication, and third-party systems connected with care for failure modes.',
     icon: 'Waypoints',
   },
   {

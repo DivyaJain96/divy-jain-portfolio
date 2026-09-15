@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ChevronDown, Folder, Github } from 'lucide-react';
-import { projects, workAreas } from '@/data/portfolio';
+import { projects, workAreas, type Project } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
@@ -20,16 +20,20 @@ function ProjectCard({
   project,
   featured,
   delay,
+  active,
+  onActivate,
 }: {
-  project: (typeof projects)[number];
+  project: Project;
   featured?: boolean;
   delay: number;
+  active: boolean;
+  onActivate: () => void;
 }) {
   const hasLive = Boolean(project.liveDemo);
   const hasGit = Boolean(project.github);
   const [open, setOpen] = useState(Boolean(featured));
   const cardRef = useRef<HTMLElement>(null);
-  const metrics = 'metrics' in project ? project.metrics : undefined;
+  const showContributions = featured || open;
 
   const onMove = (e: React.MouseEvent<HTMLElement>) => {
     const el = cardRef.current;
@@ -55,12 +59,15 @@ function ProjectCard({
     <Reveal delay={delay} className={featured ? 'lg:col-span-2' : ''}>
       <article
         ref={cardRef}
+        data-work-card={project.title}
         data-cursor-card
+        aria-current={active ? 'true' : undefined}
         onMouseMove={onMove}
         onMouseLeave={onLeave}
+        onClick={onActivate}
         className={`project-card panel group relative overflow-hidden rounded-[1.6rem] ${
           featured ? 'lg:grid lg:grid-cols-[1.1fr_0.9fr] featured-card' : ''
-        }`}
+        } ${active ? 'is-active' : ''}`}
       >
         <div className={`relative overflow-hidden ${featured ? 'min-h-[240px]' : 'h-44'}`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${visualTone[project.visual] || visualTone.api} transition-transform duration-500 ease-out group-hover:scale-[1.03]`} />
@@ -85,9 +92,9 @@ function ProjectCard({
             {project.title}
           </h3>
 
-          {metrics && metrics.length > 0 && (
+          {project.metrics && project.metrics.length > 0 && (
             <div className="mt-4 grid grid-cols-2 gap-2">
-              {metrics.map((metric) => (
+              {project.metrics.map((metric) => (
                 <div
                   key={metric.label}
                   className="rounded-2xl border border-champagne-400/20 bg-champagne-400/8 px-3 py-3"
@@ -99,27 +106,35 @@ function ProjectCard({
             </div>
           )}
 
-          <dl className="mt-4 space-y-3 text-sm leading-relaxed">
-            <div>
-              <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-champagne-400">Challenge</dt>
-              <dd className="mt-1 text-ink-300">{project.problem}</dd>
+          <p className="mt-4 text-sm leading-relaxed text-ink-300">{project.summary}</p>
+
+          {showContributions && project.contributions.length > 0 && (
+            <div className="mt-4">
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-champagne-400">Key contributions</p>
+              <ul className="mt-2 space-y-1.5">
+                {project.contributions.map((item) => (
+                  <li key={item} className="flex gap-2.5 text-sm leading-relaxed text-ink-200">
+                    <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne-400" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            {(open || featured) && (
-              <div>
-                <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-champagne-400">Solution</dt>
-                <dd className="mt-1 text-ink-200">{project.solution}</dd>
-              </div>
-            )}
-            <div className="rounded-2xl border-l-2 border-champagne-400/50 bg-white/[0.02] px-3 py-2.5">
-              <dt className="font-mono text-[10px] uppercase tracking-[0.16em] text-champagne-400">Impact</dt>
-              <dd className="mt-1 text-ink-100">{project.impact}</dd>
-            </div>
-          </dl>
+          )}
+
+          <div className="mt-4 rounded-2xl border-l-2 border-champagne-400/50 bg-white/[0.02] px-3 py-2.5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-champagne-400">Impact</p>
+            <p className="mt-1 text-sm text-ink-100">{project.impact}</p>
+          </div>
 
           {!featured && (
             <button
               type="button"
-              onClick={() => setOpen((value) => !value)}
+              onClick={(event) => {
+                event.stopPropagation();
+                onActivate();
+                setOpen((value) => !value);
+              }}
               className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm font-medium text-champagne-200 transition-colors duration-220 hover:text-champagne-100"
               aria-expanded={open}
             >
@@ -165,16 +180,49 @@ export default function Projects() {
   const filtered = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
   const featured = filtered.filter((p) => p.featured);
   const rest = filtered.filter((p) => !p.featured);
+  const [activeTitle, setActiveTitle] = useState(filtered[0]?.title ?? '');
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const next = (filter === 'All' ? projects : projects.filter((item) => item.category === filter))[0]?.title ?? '';
+    setActiveTitle(next);
+  }, [filter]);
+
+  useEffect(() => {
+    const root = sectionRef.current;
+    if (!root) return;
+
+    const nodes = Array.from(root.querySelectorAll<HTMLElement>('[data-work-card]'));
+    if (!nodes.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const next = visible[0]?.target.getAttribute('data-work-card');
+        if (next) setActiveTitle(next);
+      },
+      {
+        root: null,
+        threshold: [0.2, 0.35, 0.5, 0.7],
+        rootMargin: '-18% 0px -48% 0px',
+      }
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, [filter]);
 
   return (
-    <section id="projects" className="section-padding relative">
+    <section id="projects" ref={sectionRef} className="section-padding relative">
       <div className="container-max">
         <SectionHeader
           icon={Folder}
           kicker="Selected work"
           title="Case studies from"
           italic="systems I have owned."
-          copy="Selected case studies from enterprise software and web applications I have worked on — written so a client or recruiter can see the problem, the approach, and the result, without confidential internals."
+          copy="Selected case studies from enterprise software and web applications I have worked on — written so a client or recruiter can see the system, the work involved, and the result, without confidential details."
         />
 
         <Reveal className="mb-8">
@@ -211,13 +259,26 @@ export default function Projects() {
 
         <div className="grid gap-5 lg:grid-cols-2">
           {featured.map((project, i) => (
-            <ProjectCard key={`${filter}-${project.title}`} project={project} featured delay={i * 0.07} />
+            <ProjectCard
+              key={`${filter}-${project.title}`}
+              project={project}
+              featured
+              delay={i * 0.07}
+              active={activeTitle === project.title}
+              onActivate={() => setActiveTitle(project.title)}
+            />
           ))}
         </div>
         {rest.length > 0 && (
           <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {rest.map((project, i) => (
-              <ProjectCard key={`${filter}-${project.title}`} project={project} delay={0.08 + i * 0.06} />
+              <ProjectCard
+                key={`${filter}-${project.title}`}
+                project={project}
+                delay={0.08 + i * 0.06}
+                active={activeTitle === project.title}
+                onActivate={() => setActiveTitle(project.title)}
+              />
             ))}
           </div>
         )}

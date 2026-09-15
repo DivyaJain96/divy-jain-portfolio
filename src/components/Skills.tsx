@@ -106,7 +106,7 @@ export default function Skills() {
           kicker="Capabilities"
           title="A stack for"
           italic="enterprise software & web applications."
-          copy="Software Developer with full-stack, hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production environments. React is working knowledge — not the primary specialization."
+          copy="Software Developer with hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production environments. React is working knowledge — not the primary specialization."
         />
 
         <Reveal className="mb-6 panel rounded-[1.5rem] p-5 sm:p-6">

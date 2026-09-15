@@ -105,7 +105,7 @@ export default function Hero() {
             animate={play ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.65, ease: easeOut, delay: 0.5 }}
           >
-            I craft systems around
+            I work across
             <span className="relative mt-1 block min-h-[1.6em] text-champagne-200" aria-live="polite">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -201,7 +201,7 @@ export default function Hero() {
             </div>
             <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3">
               <p className="max-w-[18rem] text-sm text-ink-200">
-                Frontend, backend, data, APIs, integrations, automation, and production — the shape of systems I like to build.
+                Frontend, backend, data, APIs, integrations, automation, and production — the shape of systems I work on.
               </p>
               <span className="hidden font-mono text-[10px] uppercase tracking-widest text-champagne-400 sm:block">
                 Live canvas

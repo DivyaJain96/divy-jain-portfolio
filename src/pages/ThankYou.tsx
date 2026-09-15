@@ -81,7 +81,7 @@ export default function ThankYou() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.32, duration: 0.55, ease: easeOut }}
           >
-            Your inquiry has been successfully submitted.
+            Your inquiry has been submitted.
           </motion.p>
 
           <motion.p

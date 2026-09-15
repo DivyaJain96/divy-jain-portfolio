@@ -14,7 +14,7 @@ export default function Experience() {
           kicker="Experience"
           title="How the work has"
           italic="grown in practice."
-          copy="Software Developer with full-stack, hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production support — Java, Spring Boot, SQL, JSP, JavaScript, and related technologies."
+          copy="Software Developer with hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production support — Java, Spring Boot, SQL, JSP, JavaScript, and related technologies."
         />
 
         <Timeline items={experience} followScroll />

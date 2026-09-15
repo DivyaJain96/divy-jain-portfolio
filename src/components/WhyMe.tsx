@@ -14,7 +14,7 @@ export default function WhyMe() {
           kicker="Why work with me"
           title="Hire someone who treats"
           italic="code as a long-term asset."
-          copy="Clients, recruiters, and teams get a developer who thinks in systems, writes for the next person, and stays accountable after the first demo."
+          copy="Clients, recruiters, and teams get a developer who thinks in systems, writes for the next person, and stays accountable after the first delivery."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
