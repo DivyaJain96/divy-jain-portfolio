@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ChevronDown, Folder, Github } from 'lucide-react';
-import { projects, workAreas, type Project } from '@/data/portfolio';
+import { projects, type Project } from '@/data/portfolio';
 import { goHomeHash } from '@/lib/motion';
+import CaseStudyVisual from './CaseStudyVisual';
 import Reveal from './ui/Reveal';
 import SectionHeader from './ui/SectionHeader';
 
@@ -72,7 +73,10 @@ function ProjectCard({
         <div className={`relative overflow-hidden ${featured ? 'min-h-[240px]' : 'h-44'}`}>
           <div className={`absolute inset-0 bg-gradient-to-br ${visualTone[project.visual] || visualTone.api} transition-transform duration-500 ease-out group-hover:scale-[1.03]`} />
           <div className="absolute inset-0 bg-grid-fine bg-[size:28px_28px] opacity-40 transition-transform duration-500 ease-out group-hover:scale-[1.04]" />
-          <div className="absolute left-5 top-5 flex flex-wrap gap-2">
+          <div className="absolute inset-0 px-3 pb-2 pt-12 sm:px-4">
+            <CaseStudyVisual kind={project.visual} active={active} />
+          </div>
+          <div className="absolute left-5 top-5 z-10 flex flex-wrap gap-2">
             {project.featured && (
               <span className="rounded-full border border-champagne-400/30 bg-champagne-400/10 px-2.5 py-1 text-xs text-champagne-200">
                 Featured
@@ -81,9 +85,6 @@ function ProjectCard({
             <span className="rounded-full border border-white/10 bg-void/40 px-2.5 py-1 text-xs text-ink-200">
               {project.category}
             </span>
-          </div>
-          <div className="absolute bottom-5 left-5 font-display text-5xl font-medium text-white/10 transition-transform duration-500 ease-out group-hover:scale-105">
-            {project.title.charAt(0)}
           </div>
         </div>
 
@@ -224,20 +225,6 @@ export default function Projects() {
           italic="systems I have owned."
           copy="Selected case studies from enterprise software and web applications I have worked on — written so a client or recruiter can see the system, the work involved, and the result, without confidential details."
         />
-
-        <Reveal className="mb-8">
-          <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">Application areas</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {workAreas.map((area) => (
-              <span
-                key={area}
-                className="interactive-chip rounded-full border border-white/8 bg-white/[0.03] px-3 py-1.5 text-sm text-ink-200"
-              >
-                {area}
-              </span>
-            ))}
-          </div>
-        </Reveal>
 
         <Reveal className="mb-8 flex flex-wrap gap-2">
           {filters.map((item) => (

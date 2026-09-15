@@ -8,12 +8,13 @@ export const profile = {
   role: 'Software Developer',
   headline: 'Enterprise Software & Web Application Development',
   rotatingFocus: [
+    'system design and architecture',
     'frontend/UI for web applications',
     'Java & Spring Boot applications',
     'REST APIs and integrations',
     'automation and production support',
   ],
-  tagline: 'Java · Spring Boot · Full-stack · Frontend/UI · Backend · APIs · Integrations · Production',
+  tagline: 'Java · Spring Boot · System Design · Frontend/UI · Backend · APIs · Integrations · Production',
   // Direct contact. Leave empty to hide the matching Contact/Footer links — do not use placeholders.
   email: '',
   phone: '',
@@ -21,14 +22,17 @@ export const profile = {
   calendly: '',
   github: '',
   linkedin: 'https://www.linkedin.com/in/divyajain9649',
-  bio: 'I develop and enhance enterprise-level business software and web applications across frontend/UI, backend development, databases, REST APIs, third-party integrations, automation, and production support.',
-  bioShort: 'Software Developer working on enterprise software and web applications — across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
+  bio: 'I design end-to-end module workflows and system architecture, and develop enterprise-level business software and web applications across frontend/UI, backend development, databases, REST APIs, third-party integrations, automation, and production support.',
+  bioShort: 'Software Developer working on enterprise software and web applications — from system design through frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
   // Actual profile photo lives at public/profile.jpg and is served as /profile.jpg.
   photo: '/profile.jpg',
   resume: '/resume.pdf',
   location: 'Ahmedabad, Gujarat, India',
   availability: 'Open to projects and conversations',
 };
+
+/** Set to true to restore the Resume download link on the public portfolio. */
+export const SHOW_RESUME = false;
 
 export const stats = [
   { label: 'Years of Experience', value: 3, suffix: '+' },
@@ -39,6 +43,7 @@ export const stats = [
 
 export const strengths = [
   'Java & Spring Boot',
+  'System Design & Architecture',
   'Frontend / UI',
   'REST APIs',
   'System Integrations',
@@ -50,7 +55,7 @@ export const strengths = [
 export const focusAreas = [
   {
     title: 'Complete product flow',
-    text: 'Frontend/UI, backend logic, databases, APIs, integrations, and production support — one flow, not disconnected layers.',
+    text: 'From system design through frontend/UI, backend logic, databases, APIs, integrations, and production support — one flow, not disconnected layers.',
     icon: 'Layers',
   },
   {
@@ -71,6 +76,7 @@ export const focusAreas = [
 ];
 
 export const applicationFlow = [
+  { title: 'System Design & Architecture', icon: 'Network' },
   { title: 'Frontend / UI', icon: 'Monitor' },
   { title: 'Backend Development', icon: 'Server' },
   { title: 'Business Logic', icon: 'Layers' },
@@ -97,6 +103,7 @@ export const workAreas = [
 export const primaryStack = [
   'Java',
   'Spring Boot',
+  'System Design & Architecture',
   'Frontend / UI',
   'REST APIs',
   'Microservices',
@@ -208,6 +215,7 @@ export const skillGroups = [
     icon: 'GitBranch',
     accent: 'signal',
     skills: [
+      { name: 'System Design & Architecture' },
       { name: 'Code Refactoring' },
       { name: 'Debugging' },
       { name: 'Problem Solving' },
@@ -234,6 +242,7 @@ export const skillGroups = [
 export const featuredTech = [
   'Java',
   'Spring Boot',
+  'System Design & Architecture',
   'Frontend / UI',
   'REST APIs',
   'Microservices',
@@ -275,8 +284,9 @@ export const experience: TimelineEntry[] = [
     location: 'Ahmedabad, Gujarat, India',
     type: 'Professional',
     summary:
-      'Developed and enhanced enterprise-level business software and web applications using Java, Spring Boot, SQL, JSP, JavaScript, jQuery, and related technologies — across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
+      'Designed end-to-end module workflows and system architecture, and developed enterprise-level business software and web applications using Java, Spring Boot, SQL, JSP, JavaScript, jQuery, and related technologies — across frontend/UI, backend, databases, APIs, integrations, automation, and production support.',
     contributions: [
+      'Designed end-to-end module workflows and system architecture, including business requirements, data flow, business logic, database interactions, APIs, integrations, validations, automation, and production workflows.',
       'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, JSTL) to Java/Spring Boot APIs so screens and services work as one product.',
       'Owned subscription and billing workflows including add hardware/other, renewal, new license, reactive, upsell/upgrade, add-ons, validations, V2 synchronization, migration, and post-live hardening.',
       'Optimized DataTable and API workflows, reducing redundant API calls from 4–9 per action to a single optimized call, reducing API load by 60%+ while supporting 5,000+ records.',

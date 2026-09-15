@@ -52,7 +52,7 @@ export default function About() {
           kicker="About"
           title="A Software Developer who"
           italic="works across the stack."
-          copy="Hands-on experience developing enterprise-level business software and web applications across frontend, backend, databases, APIs, third-party integrations, automation, and production support. The goal is straightforward: systems that run more reliably and reduce manual work."
+          copy="Hands-on experience designing end-to-end module workflows and system architecture, then developing enterprise-level business software and web applications across frontend, backend, databases, APIs, third-party integrations, automation, and production support. I start from the business requirement and shape the complete application flow before and during implementation."
         />
 
         <div ref={ref} className="grid gap-6 lg:grid-cols-12">

@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="relative border-t border-white/5 px-4 pb-8 pt-16 sm:px-6">
       <div className="absolute inset-x-0 top-0 h-px hairline" />
       <div className="container-max">
-        <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr_0.7fr]">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_0.7fr_0.7fr]">
           <div>
             <div className="flex items-center gap-3">
               <span className="flex h-11 w-11 items-center justify-center rounded-full border border-champagne-400/30 font-display text-sm font-medium text-champagne-200">
@@ -116,6 +116,28 @@ export default function Footer() {
                 </a>
               )}
             </div>
+          </div>
+
+          <div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-champagne-400">Navigate</p>
+            <ul className="mt-4 space-y-2">
+              <li>
+                <a
+                  href="/privacy-policy"
+                  className="text-sm text-ink-300 transition-colors duration-220 hover:text-champagne-200"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/terms-and-conditions"
+                  className="text-sm text-ink-300 transition-colors duration-220 hover:text-champagne-200"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 

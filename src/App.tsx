@@ -20,6 +20,8 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ThankYou from '@/pages/ThankYou';
 import NotFound from '@/pages/NotFound';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import TermsAndConditions from '@/pages/TermsAndConditions';
 import Seo from '@/components/Seo';
 import { ReadyProvider } from '@/context/ReadyContext';
 import { scrollToHash } from '@/lib/motion';
@@ -67,6 +69,12 @@ function App() {
   const path = window.location.pathname.replace(/\/$/, '') || '/';
   if (path === '/thank-you') {
     return <ThankYou />;
+  }
+  if (path === '/privacy-policy') {
+    return <PrivacyPolicy />;
+  }
+  if (path === '/terms-and-conditions') {
+    return <TermsAndConditions />;
   }
   if (path !== '/') {
     return <NotFound />;

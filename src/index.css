@@ -137,6 +137,12 @@
       transition: none !important;
     }
 
+    .case-visual-line,
+    .case-visual-pulse,
+    .case-visual-flow {
+      animation: none !important;
+    }
+
     .panel:hover,
     .btn-primary:hover,
     .btn-secondary:hover,
@@ -428,6 +434,110 @@
     border-radius: 999px;
     background: linear-gradient(to bottom, rgba(201, 174, 124, 0.95), rgba(201, 174, 124, 0.22));
     z-index: 2;
+  }
+
+  .case-visual {
+    overflow: visible;
+  }
+
+  .case-visual-line {
+    fill: none;
+    stroke: rgba(201, 174, 124, 0.32);
+    stroke-width: 1.15;
+    stroke-linecap: round;
+  }
+
+  .case-visual.is-active .case-visual-line,
+  .project-card:hover .case-visual-line {
+    stroke: rgba(201, 174, 124, 0.58);
+  }
+
+  .case-visual-node {
+    fill: rgba(8, 9, 12, 0.78);
+    stroke: rgba(201, 174, 124, 0.28);
+    stroke-width: 1;
+  }
+
+  .case-visual-node-sm {
+    fill: rgba(201, 174, 124, 0.22);
+    stroke: rgba(201, 174, 124, 0.4);
+    stroke-width: 1;
+  }
+
+  .case-visual-pulse {
+    fill: rgba(201, 174, 124, 0.08);
+    stroke: none;
+  }
+
+  .case-visual-label {
+    fill: rgba(210, 205, 195, 0.72);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+
+  .case-visual-flow {
+    fill: #c9ae7c;
+    opacity: 0;
+    offset-rotate: 0deg;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .case-visual-line {
+      stroke-dasharray: 3 7;
+      animation: case-dash 11s linear infinite;
+    }
+
+    .case-visual.is-active .case-visual-line,
+    .project-card:hover .case-visual-line {
+      animation-duration: 6.5s;
+    }
+
+    .case-visual-pulse {
+      animation: case-pulse 4.8s ease-in-out infinite;
+    }
+
+    .case-visual.is-active .case-visual-pulse {
+      animation-duration: 3.4s;
+    }
+
+    .case-visual-flow {
+      animation: case-flow 5.8s ease-in-out infinite;
+    }
+  }
+
+  @keyframes case-dash {
+    to {
+      stroke-dashoffset: -40;
+    }
+  }
+
+  @keyframes case-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes case-flow {
+    0% {
+      offset-distance: 0%;
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.95;
+    }
+    82% {
+      opacity: 0.95;
+    }
+    100% {
+      offset-distance: 100%;
+      opacity: 0;
+    }
   }
 
   .featured-card {

@@ -7,6 +7,7 @@ import {
   GitBranch,
   Layers,
   Monitor,
+  Network,
   Rocket,
   Server,
   Sparkles,
@@ -30,6 +31,7 @@ const icons = {
   Rocket,
   Sparkles,
   Waypoints,
+  Network,
 } as const;
 
 function SkillCard({
@@ -106,7 +108,7 @@ export default function Skills() {
           kicker="Capabilities"
           title="A stack for"
           italic="enterprise software & web applications."
-          copy="Software Developer with hands-on experience across frontend, backend, databases, APIs, integrations, automation, and production environments. React is working knowledge — not the primary specialization."
+          copy="Software Developer with hands-on experience designing end-to-end module workflows and system architecture, then implementing them across frontend, backend, databases, APIs, integrations, automation, and production environments. React is working knowledge — not the primary specialization."
         />
 
         <Reveal className="mb-6 panel rounded-[1.5rem] p-5 sm:p-6">
@@ -114,14 +116,13 @@ export default function Skills() {
             Application flow
           </p>
           <div className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-            {applicationFlow.map((step, i) => {
+            {applicationFlow.map((step) => {
               const Icon = icons[step.icon as keyof typeof icons] || Server;
               return (
                 <div
                   key={step.title}
                   className="interactive-chip flex min-h-12 items-center gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-3 py-2.5"
                 >
-                  <span className="font-mono text-[10px] text-champagne-400">{String(i + 1).padStart(2, '0')}</span>
                   <Icon className="h-3.5 w-3.5 shrink-0 text-champagne-400" strokeWidth={1.75} />
                   <span className="text-sm text-ink-100">{step.title}</span>
                 </div>

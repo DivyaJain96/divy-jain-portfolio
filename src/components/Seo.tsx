@@ -53,6 +53,7 @@ function upsertJsonLd() {
         knowsAbout: [
           'Java',
           'Spring Boot',
+          'System Design',
           'Backend Development',
           'Frontend Development',
           'REST APIs',

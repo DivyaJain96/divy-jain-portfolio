@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, Linkedin } from 'lucide-react';
-import { featuredTech, profile } from '@/data/portfolio';
+import { featuredTech, profile, SHOW_RESUME } from '@/data/portfolio';
 import { useReady } from '@/context/ReadyContext';
 import { easeOut, goHomeHash } from '@/lib/motion';
 import HeroCanvas from './HeroCanvas';
@@ -179,7 +179,7 @@ export default function Hero() {
                 LinkedIn
               </a>
             )}
-            {profile.resume && (
+            {SHOW_RESUME && profile.resume && (
               <a href={profile.resume} download className="link-underline">
                 Resume
               </a>

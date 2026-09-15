@@ -15,7 +15,7 @@ export default function Services() {
           kicker="What I do"
           title="Core expertise,"
           italic="said plainly."
-          copy="I develop enterprise software and web applications across frontend/UI, backend, databases, APIs, third-party integrations, automation, and production support — not a single layer in isolation."
+          copy="I design end-to-end module workflows and develop enterprise software and web applications across frontend/UI, backend, databases, APIs, third-party integrations, automation, and production support — not a single layer in isolation."
         />
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
