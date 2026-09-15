@@ -7,21 +7,25 @@ declare global {
   }
 }
 
+function shouldUseLenis() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false;
+  if (window.matchMedia('(hover: none)').matches) return false;
+  if (window.matchMedia('(pointer: coarse)').matches) return false;
+  if (window.matchMedia('(max-width: 767px)').matches) return false;
+  return true;
+}
+
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (!shouldUseLenis()) return;
 
     const lenis = new Lenis({
-      duration: isMobile ? 0.85 : 1.15,
+      duration: 1.15,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       wheelMultiplier: 1,
-      touchMultiplier: isMobile ? 1.4 : 1,
     });
 
     lenisRef.current = lenis;

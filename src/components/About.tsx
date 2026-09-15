@@ -47,8 +47,8 @@ export default function About() {
           icon={UserRound}
           kicker="About"
           title="A Software Developer who"
-          italic="owns the backend path."
-          copy="I enjoy hard technical problems — especially the ones that hide in workflows, APIs, and data. The aim is simple: systems that run cleaner and ask people to do less by hand."
+          italic="builds complete applications."
+          copy="Backend is the primary focus — Java, Spring Boot, APIs, and data — with hands-on frontend/UI so the product is usable end to end. The aim is simple: systems that run cleaner and ask people to do less by hand."
         />
 
         <div ref={ref} className="grid gap-6 lg:grid-cols-12">
@@ -69,7 +69,8 @@ export default function About() {
               </div>
               <p className="mt-6 text-sm leading-relaxed text-ink-300">{profile.bio}</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-400">
-                Java, Spring Boot, SQL, JavaScript, jQuery, and JSP when the interface needs to sit on a serious backend.
+                Java, Spring Boot, and SQL on the backend. HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP, and
+                React (working knowledge) when the interface needs to sit on that backend.
               </p>
             </div>
           </Reveal>

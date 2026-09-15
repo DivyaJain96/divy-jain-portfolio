@@ -5,7 +5,12 @@ import SectionHeader from './ui/SectionHeader';
 
 const icons = { Server, Layers, Network } as const;
 
+/** Set to true to restore the Engagements / pricing section. */
+export const SHOW_PRICING = false;
+
 export default function Pricing() {
+  if (!SHOW_PRICING) return null;
+
   return (
     <section id="pricing" className="section-padding relative">
       <div className="container-max">

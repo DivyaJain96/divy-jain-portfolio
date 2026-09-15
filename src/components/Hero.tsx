@@ -228,11 +228,15 @@ export default function Hero() {
 
       <a
         href="#about"
-        className="absolute bottom-[5.75rem] left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-400 transition-colors hover:text-ink-100 lg:flex"
-        aria-label="Scroll to about"
+        onClick={(e) => {
+          e.preventDefault();
+          goHomeHash('#about');
+        }}
+        className="absolute bottom-[5.75rem] left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-ink-500 transition-colors duration-220 hover:text-champagne-300 lg:flex"
+        aria-label="Scroll to explore"
       >
-        <span className="font-mono text-[10px] uppercase tracking-[0.22em]">Scroll</span>
-        <ArrowDown className="h-4 w-4 animate-scroll-bounce" />
+        <span className="font-mono text-[10px] uppercase tracking-[0.18em]">Scroll to explore</span>
+        <ArrowDown className="h-3.5 w-3.5 opacity-60" />
       </a>
     </section>
   );

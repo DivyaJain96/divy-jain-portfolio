@@ -62,6 +62,9 @@ function SkillCard({
             </span>
           ))}
         </div>
+        {'note' in group && group.note && (
+          <p className="mt-3 text-xs leading-relaxed text-ink-400">{group.note}</p>
+        )}
       </div>
     </Reveal>
   );
@@ -75,8 +78,8 @@ export default function Skills() {
           icon={Code2}
           kicker="Capabilities"
           title="A stack centered on"
-          italic="Java and backend systems."
-          copy="The primary stack is the work I take on. Everything else is grouped so it does not compete for attention."
+          italic="Java, with UI to match."
+          copy="Backend is the primary stack. Frontend/UI — HTML, CSS, Bootstrap, JavaScript, jQuery, JSP, and React (working knowledge) — is how complete business applications get finished. React is an additional frontend skill, not the main focus."
         />
         <Reveal className="mb-6 panel rounded-[1.5rem] p-5 sm:p-6">
           <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-champagne-400">Primary stack</p>

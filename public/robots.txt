@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-# Set VITE_SITE_URL in production so social crawlers resolve absolute Open Graph URLs.
+Sitemap: https://divy-jain-portfolio.vercel.app/sitemap.xml

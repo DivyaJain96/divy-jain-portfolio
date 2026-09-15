@@ -59,7 +59,7 @@ export default function ProfilePortrait({ variant = 'about', className = '' }: P
         {status === 'ready' ? (
           <img
             src={src}
-            alt="Divy Jain - Software Developer"
+            alt="Portrait of Divy Jain, Software Developer"
             width={400}
             height={400}
             decoding="async"

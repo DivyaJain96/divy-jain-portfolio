@@ -150,7 +150,8 @@ export default function Contact() {
             </h2>
             <p className="mt-5 max-w-md text-ink-200">
               Have an idea, project, or technical challenge? Whether you need backend development, APIs, system
-              integrations, or help improving an existing application, I would be glad to discuss it.
+              integrations, frontend/UI for a business application, or help improving an existing product, I would be
+              glad to discuss it.
             </p>
             <p className="mt-4 max-w-md text-ink-300">
               Share your details below. I will get back to you as soon as possible, typically within 24 hours.

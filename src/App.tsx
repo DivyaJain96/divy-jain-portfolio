@@ -15,7 +15,7 @@ import Projects from '@/components/Projects';
 import Services from '@/components/Services';
 import WhyMe from '@/components/WhyMe';
 import Process from '@/components/Process';
-import Pricing from '@/components/Pricing';
+import Pricing, { SHOW_PRICING } from '@/components/Pricing';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ThankYou from '@/pages/ThankYou';
@@ -54,7 +54,7 @@ function HomePage() {
           <Experience />
           <WhyMe />
           <Process />
-          <Pricing />
+          {SHOW_PRICING ? <Pricing /> : null}
           <Contact />
         </main>
         <Footer />

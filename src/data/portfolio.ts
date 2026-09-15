@@ -1,17 +1,19 @@
+export const SITE_URL = 'https://divy-jain-portfolio.vercel.app';
+
 export const profile = {
   name: 'Divy Jain',
   firstName: 'Divy',
   lastName: 'Jain',
   initials: 'DJ',
   role: 'Software Developer',
-  headline: 'I build reliable backend systems, APIs, and scalable business applications.',
+  headline: 'Backend-focused Software Developer building complete business applications — from UI to APIs and integrations.',
   rotatingFocus: [
     'Java & Spring Boot backends',
     'REST APIs and integrations',
-    'business workflows',
+    'frontend/UI for business apps',
     'performance optimization',
   ],
-  tagline: 'Java · Spring Boot · Backend · APIs · Integrations',
+  tagline: 'Java · Spring Boot · Backend · Frontend/UI · APIs · Integrations',
   // Direct contact. Leave empty to hide the matching Contact/Footer links — do not use placeholders.
   email: '',
   phone: '',
@@ -19,8 +21,8 @@ export const profile = {
   calendly: '',
   github: '',
   linkedin: 'https://www.linkedin.com/in/divyajain9649',
-  bio: 'I build and optimize business applications with Java, Spring Boot, SQL, and related backend technologies — with a focus on integrations, workflows, and performance.',
-  bioShort: 'Software Developer specializing in Java, Spring Boot, APIs, and integrations.',
+  bio: 'I am a backend-focused Software Developer with hands-on experience building frontend/UI layers for complete business applications — Java, Spring Boot, SQL, APIs, and the screens that sit on top of them.',
+  bioShort: 'Backend-focused Software Developer with hands-on frontend/UI experience for complete business applications.',
   // Actual profile photo lives at public/profile.jpg and is served as /profile.jpg.
   photo: '/profile.jpg',
   resume: '/resume.pdf',
@@ -39,7 +41,7 @@ export const strengths = [
   'Java & Spring Boot',
   'REST APIs',
   'System integrations',
-  'Business workflows',
+  'Frontend / UI for business apps',
   'Performance work',
   'Production debugging',
 ];
@@ -62,7 +64,7 @@ export const focusAreas = [
   },
   {
     title: 'Always sharpening',
-    text: 'Continuously building skill in Java, Spring Boot, microservices, system design, and scalable backend architecture.',
+    text: 'Continuously building skill in Java, Spring Boot, microservices, system design, and the frontend/UI that completes a business application.',
     icon: 'Sparkles',
   },
 ];
@@ -111,17 +113,20 @@ export const skillGroups = [
     ],
   },
   {
-    title: 'Web Technologies',
+    title: 'Frontend / UI',
     icon: 'Monitor',
     accent: 'fog',
+    note: 'React is working knowledge — not the primary focus.',
     skills: [
+      { name: 'HTML' },
+      { name: 'CSS' },
+      { name: 'Bootstrap' },
       { name: 'JavaScript' },
       { name: 'jQuery' },
       { name: 'AJAX' },
-      { name: 'HTML' },
-      { name: 'CSS' },
       { name: 'JSP' },
       { name: 'JSTL' },
+      { name: 'React' },
     ],
   },
   {
@@ -180,6 +185,10 @@ export const featuredTech = [
   'PostgreSQL',
   'Performance Optimization',
   'Hibernate',
+  'HTML',
+  'JavaScript',
+  'Bootstrap',
+  'jQuery',
   'Webhooks',
   'Razorpay',
   'Microsoft Teams',
@@ -188,6 +197,7 @@ export const featuredTech = [
 
 export type TimelineEntry = {
   role: string;
+  credential?: string;
   organization: string;
   duration: string;
   location: string;
@@ -199,14 +209,15 @@ export type TimelineEntry = {
 export const experience: TimelineEntry[] = [
   {
     role: 'Software Developer',
-    organization: 'Backend systems, integrations, and business applications',
+    organization: 'Backend-focused development across complete business applications',
     duration: '3+ years',
     location: 'Ahmedabad, Gujarat, India',
     type: 'Professional',
     summary:
-      'The work has grown from feature delivery into owning workflows end to end — from the first validation through production fixes.',
+      'Backend-focused Software Developer with hands-on experience building frontend/UI layers for complete business applications — from the first validation through production fixes.',
     contributions: [
       'Took ownership of subscription and billing backend flows: rules, validations, sync, and later improvements',
+      'Built and connected the UI layer (HTML, CSS, Bootstrap, JavaScript, jQuery, AJAX, JSP) to Java/Spring Boot APIs so screens and services work as one product',
       'Connected payment and meeting systems so events, notifications, and recordings live inside the product',
       'Cut redundant DataTable/API calls and kept the path usable at 5,000+ records',
       'Supported mapping, validation, and rollout for large data moves, plus debugging when production misbehaved',
@@ -216,25 +227,23 @@ export const experience: TimelineEntry[] = [
 
 export const education: TimelineEntry[] = [
   {
-    role: 'B.Sc. Computer Science',
-    organization: 'Computer science foundation',
+    role: 'MCA',
+    credential: 'Master of Computer Applications',
+    organization: 'CHARUSAT University',
     duration: '',
     location: '',
     type: 'Education',
-    summary:
-      'Training in programming and structured problem solving that still shows up in how I approach production work.',
-    contributions: [
-      'Solid grounding in fundamentals, data structures, and careful trade-offs',
-      'Carried that habit into readable code and explicit contracts',
-    ],
+    summary: '',
+    contributions: [],
   },
   {
-    role: 'MCA',
+    role: 'B.Sc.',
+    credential: 'Bachelor of Science',
     organization: '',
     duration: '',
     location: '',
     type: 'Education',
-    summary: 'Completed after B.Sc.',
+    summary: '',
     contributions: [],
   },
 ];
@@ -340,8 +349,8 @@ export const services = [
   {
     title: 'Business Application Development',
     icon: 'Layers',
-    value: 'Workflows for CRM, billing, operations, subscriptions, and the day-to-day work of an enterprise app.',
-    plain: 'Improving the CRM, billing, subscription, and operations flows teams use every day.',
+    value: 'Workflows for CRM, billing, operations, subscriptions — including the frontend/UI that teams use every day.',
+    plain: 'Improving the CRM, billing, subscription, and operations flows teams use every day, from screens to backend.',
   },
   {
     title: 'Performance Optimization',
@@ -419,7 +428,7 @@ export const reasons = [
   },
   {
     title: 'Scalable backend systems',
-    text: 'Java and Spring Boot services designed for real operations, not only happy-path demos.',
+    text: 'Java and Spring Boot services designed for real operations, with the frontend/UI wired in so the product is usable end to end.',
     icon: 'Gauge',
   },
   {

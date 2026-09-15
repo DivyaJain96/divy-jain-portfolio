@@ -14,7 +14,7 @@ export default function Experience() {
           kicker="Experience"
           title="How the work has"
           italic="grown in practice."
-          copy="Not a job-title stack. The through-line is backend ownership: workflows, integrations, performance, and what happens after something is live."
+          copy="Backend-focused Software Developer with hands-on frontend/UI development — Java, Spring Boot, APIs, databases, and integrations first, with the screens that complete the application."
         />
 
         <Timeline items={experience} followScroll />
@@ -23,8 +23,8 @@ export default function Experience() {
           <SectionHeader
             icon={GraduationCap}
             kicker="Education"
-            title="B.Sc., then"
-            italic="MCA."
+            title="Academic"
+            italic="credentials."
           />
           <Timeline items={education} followScroll />
         </div>
@@ -47,7 +47,7 @@ function Timeline({ items, followScroll = false }: { items: TimelineEntry[]; fol
 
   return (
     <div ref={trackRef} className="relative">
-      <div className="absolute bottom-0 left-[11px] top-2 w-px overflow-visible bg-gradient-to-b from-champagne-400/35 via-white/10 to-transparent md:left-1/2 md:-translate-x-px">
+      <div className="pointer-events-none absolute bottom-0 left-[11px] top-2 w-px overflow-visible bg-gradient-to-b from-champagne-400/35 via-white/10 to-transparent md:left-1/2 md:-translate-x-px">
         {showMarker && (
           <>
             <motion.span
@@ -58,7 +58,7 @@ function Timeline({ items, followScroll = false }: { items: TimelineEntry[]; fol
             <motion.span
               aria-hidden
               data-timeline-marker
-              className="pointer-events-none absolute left-1/2 z-[1] h-[22px] w-[22px] rounded-full border border-champagne-400/80 bg-void"
+              className="absolute left-1/2 z-[1] h-[22px] w-[22px] rounded-full border border-champagne-400/80 bg-void"
               style={{ top: markerTop, x: '-50%', y: markerY }}
             >
               <span className="absolute inset-1.5 rounded-full bg-champagne-400" />
@@ -68,54 +68,80 @@ function Timeline({ items, followScroll = false }: { items: TimelineEntry[]; fol
       </div>
 
       <div className="space-y-10">
-        {items.map((item, i) => (
-          <Reveal key={item.role} delay={i * 0.08}>
-            <article className="group relative grid gap-6 md:grid-cols-2">
-              <div className={`pl-10 ${i % 2 === 1 ? 'md:col-start-2 md:pl-12' : 'md:pl-0 md:pr-12 md:text-right'}`}>
-                {item.duration && (
-                  <p className="font-mono text-xs uppercase tracking-[0.18em] text-champagne-400">
-                    {item.duration}
-                  </p>
-                )}
-                <h3
-                  className={`text-2xl font-medium tracking-tight text-ink-100 md:text-[1.75rem] ${
-                    item.duration ? 'mt-2' : ''
-                  }`}
-                >
-                  {item.role}
-                </h3>
-                {item.organization && <p className="mt-1 text-ink-200">{item.organization}</p>}
-                {item.location && <p className="text-sm text-ink-400">{item.location}</p>}
-              </div>
+        {items.map((item, i) => {
+          const isEducation = item.type === 'Education';
+          return (
+            <Reveal key={`${item.role}-${item.credential || item.organization}`}>
+              <article className="group relative grid gap-6 md:grid-cols-2">
+                <div className={`pl-10 ${i % 2 === 1 ? 'md:col-start-2 md:pl-12' : 'md:pl-0 md:pr-12 md:text-right'}`}>
+                  {item.duration && (
+                    <p className="font-mono text-xs uppercase tracking-[0.18em] text-champagne-400">
+                      {item.duration}
+                    </p>
+                  )}
+                  {isEducation && (
+                    <span
+                      className={`mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full border border-champagne-400/30 text-champagne-400 ${
+                        i % 2 === 1 ? '' : 'md:ml-auto'
+                      }`}
+                      aria-hidden
+                    >
+                      <GraduationCap className="h-4 w-4" strokeWidth={1.75} />
+                    </span>
+                  )}
+                  <h3
+                    className={`text-2xl font-medium tracking-tight text-ink-100 md:text-[1.75rem] ${
+                      item.duration ? 'mt-2' : isEducation ? 'mt-0' : ''
+                    }`}
+                  >
+                    {item.role}
+                  </h3>
+                  {!isEducation && item.organization && <p className="mt-1 text-ink-200">{item.organization}</p>}
+                  {item.location && <p className="text-sm text-ink-400">{item.location}</p>}
+                </div>
 
-              <div className={`${i % 2 === 1 ? 'md:col-start-1 md:row-start-1 md:pr-12' : ''}`}>
-                <div className="panel ml-10 rounded-[1.4rem] p-6 md:ml-0">
-                  <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
-                    {item.type}
-                  </span>
-                  <p className="mt-4 text-ink-200">{item.summary}</p>
-                  {item.contributions.length > 0 && (
-                    <ul className="mt-5 space-y-2.5">
-                      {item.contributions.map((point) => (
-                        <li key={point} className="flex gap-3 text-sm text-ink-300">
-                          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne-400" />
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
+                <div className={`${i % 2 === 1 ? 'md:col-start-1 md:row-start-1 md:pr-12' : ''}`}>
+                  {(item.summary || item.contributions.length > 0) && (
+                    <div className="panel ml-10 rounded-[1.4rem] p-6 md:ml-0">
+                      <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
+                        {item.type}
+                      </span>
+                      {item.summary && <p className="mt-4 text-ink-200">{item.summary}</p>}
+                      {item.contributions.length > 0 && (
+                        <ul className="mt-5 space-y-2.5">
+                          {item.contributions.map((point) => (
+                            <li key={point} className="flex gap-3 text-sm text-ink-300">
+                              <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-champagne-400" />
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  )}
+                  {isEducation && !item.summary && item.contributions.length === 0 && (
+                    <div className="panel ml-10 rounded-[1.4rem] p-6 md:ml-0">
+                      <span className="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] uppercase tracking-widest text-ink-300">
+                        {item.type}
+                      </span>
+                      {item.credential && (
+                        <p className="mt-4 text-lg font-medium tracking-tight text-ink-100">{item.credential}</p>
+                      )}
+                      {item.organization && <p className="mt-2 text-ink-200">{item.organization}</p>}
+                    </div>
                   )}
                 </div>
-              </div>
 
-              <span
-                aria-hidden
-                className="absolute left-0 top-2 h-[22px] w-[22px] rounded-full border border-champagne-400/60 bg-void transition-transform duration-220 ease-out group-hover:scale-110 md:left-1/2 md:-translate-x-1/2"
-              >
-                {!showMarker && <span className="absolute inset-1.5 rounded-full bg-champagne-400" />}
-              </span>
-            </article>
-          </Reveal>
-        ))}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-0 top-2 h-[22px] w-[22px] rounded-full border border-champagne-400/60 bg-void transition-transform duration-220 ease-out group-hover:scale-110 md:left-1/2 md:-translate-x-1/2"
+                >
+                  {!showMarker && <span className="absolute inset-1.5 rounded-full bg-champagne-400" />}
+                </span>
+              </article>
+            </Reveal>
+          );
+        })}
       </div>
     </div>
   );
